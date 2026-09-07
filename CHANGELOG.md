@@ -2,7 +2,19 @@
 
 Newest first. [Full history on the site →](https://quietlight.app/changelog.html)
 
-## 1.3.0 · Latest · September 5, 2026
+## 1.3.1 · Latest · September 6, 2026
+
+**Current iOS and Android, a clearer drawer & Terms 1.1.0**
+
+- **The drawer** — guests can create a free account or sign in from the journal; free accounts can see Premium (the garden, Quiet Sun, Quiet Moon) without opening Settings
+- **Terms & Privacy 1.1.0** — in-app copy matches quietlight.app; returning users are asked to review them
+- **Current platforms** — Expo 57 / React Native 0.86, Android 15 edge-to-edge, a more reliable New Reflection home-screen shortcut
+
+Part of **1.3 — Companion depth** ↓
+
+---
+
+## 1.3.0 · Update · September 5, 2026
 
 **Companion depth, visiting memory & quieter journal**
 
