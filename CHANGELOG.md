@@ -2,7 +2,19 @@
 
 Newest first. [Full history on the site →](https://quietlight.app/changelog.html)
 
-## 1.3.1 · Latest · September 6, 2026
+## 1.3.2 · Latest · September 10, 2026
+
+**Guiding presence, six reflections a day & confirm email**
+
+- **Companions** — walk a reflection with you: one named teaching when they are truly guiding, and the next inch of seeing, in the voice of Light, Sun, or Moon
+- **Daily room** — a free account has six reflections each day; guests still have three; Premium remains twelve, with room for a little more when the work runs deep
+- **Confirm email** — new accounts confirm their email; existing accounts keep working as they do, and confirm that address first if they go to Premium
+
+Part of **1.3 — Companion depth** ↓
+
+---
+
+## 1.3.1 · Update · September 6, 2026
 
 **Current iOS and Android, a clearer drawer & Terms 1.1.0**
 

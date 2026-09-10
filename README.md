@@ -56,18 +56,19 @@ App source lives separately at [quiet-light-illuminations](https://github.com/ur
 ### SEO notes
 
 - **Canonical host:** `https://quietlight.app` (apex). `www` should 301 → apex (GitHub Pages).
-- **Platforms:** iOS (App Store) and Android (Google Play) — **1.3.1**.
+- **Platforms:** iOS (App Store) and Android (Google Play) — **1.3.2**.
 - **Structured data:** Organization + WebSite + SoftwareApplication (iOS and Android) on the homepage. No fabricated ratings.
 - **Share image:** `images/og-image.png` (1200×630). Favicon: `favicon-32.png`; in-page icon: `icon-256.png`.
 - **Search Console:** Submit `https://quietlight.app/sitemap.xml` after deploy.
 
 ## Changelog
 
-**Current: v1.3.1** — newest first on the site; full history on the changelog page.
+**Current: v1.3.2** — newest first on the site; full history on the changelog page.
 
 | Version | Highlights |
 |---------|------------|
-| **1.3.1** (latest) | Clearer drawer, Terms & Privacy 1.1.0, current iOS and Android |
+| **1.3.2** (latest) | Guiding presence, six reflections a day, confirm email |
+| **1.3.1** | Clearer drawer, Terms & Privacy 1.1.0, current iOS and Android |
 | **1.3.0** | Companion depth, visiting memory, quieter journal, share Today’s Light |
 | **1.2.8** | Local-day quotas, Premium deep-work room, cleaner titles, bold emphasis |
 | **1.2.7** | Android on Google Play; web data deletion; Privacy 1.0.1; Premium reliability |
