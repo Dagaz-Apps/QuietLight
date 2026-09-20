@@ -2,7 +2,19 @@
 
 Newest first. [Full history on the site →](https://quietlight.app/changelog.html)
 
-## 1.3.2 · Latest · September 10, 2026
+## 1.3.3 · Latest · September 20, 2026
+
+**7-day trial, screen info & quieter header**
+
+- **Premium** — a 7-day free trial if the store offers it for your account, then the usual monthly price
+- **Info** — a small mark on Memory Garden, Saved Reflections, Past Reflections, Choose Presence, and Premium explains what each place is for
+- **Confirm email** — no longer leaves you on that screen; Appearance in Accessibility is easier to read
+
+Part of **1.3 — Companion depth** ↓
+
+---
+
+## 1.3.2 · Update · September 10, 2026
 
 **Guiding presence, six reflections a day & confirm email**
 
