@@ -2,7 +2,20 @@
 
 Newest first. [Full history on the site →](https://quietlight.app/changelog.html)
 
-## 1.3.3 · Latest · September 20, 2026
+## 1.3.4 · Latest · October 4, 2026
+
+**Start Fresh, Release & crisis lines**
+
+- **Start Fresh** — in Settings, start over on this reflection only
+- **Release** — let these words go; Premium rebuilds Memory Garden without that write
+- **Crisis lines** — 988, 741741, and IASP in companion replies are tappable
+- **Terms & Privacy 1.2.0** — returning accounts will be asked to review them
+
+Part of **1.3 — Companion depth** ↓
+
+---
+
+## 1.3.3 · Update · September 20, 2026
 
 **7-day trial, screen info & quieter header**
 
