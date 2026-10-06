@@ -279,12 +279,12 @@ html.is-ready .whats-new-btn.ql-invite {
   position: relative;
 }
 
-/* Store badges: soft lift already exists; add warm filter hover */
-.app-store-link {
-  transition: transform 0.35s var(--ql-ease), filter 0.35s ease;
+/* Store CTAs: warm lift on hover (transform lives in index.html) */
+.store-cta {
+  transition: transform 0.35s var(--ql-ease), filter 0.35s ease, opacity 0.2s ease;
 }
 
-.app-store-link:hover {
+.store-cta:hover {
   filter: drop-shadow(0 8px 16px rgba(180, 150, 80, 0.18));
 }
 
