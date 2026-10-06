@@ -6,7 +6,7 @@
  
   <!-- Essential SEO Meta Tags -->
   <meta name="description" content="A quiet place to write what's on your mind — and be met, not managed. Quiet Light, Quiet Sun, Quiet Moon. Not a coach. Not a clinic." />
-  <meta name="keywords" content="Quiet Light, mindfulness app, meditation app, AI companion, reflection app, stillness, iOS, Android" />
+  <meta name="keywords" content="Quiet Light, reflection app, AI companion, stillness, journal companion, writing app, iOS, Android" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#FAFAF7" />
   <meta name="author" content="Quiet Light" />
@@ -32,6 +32,7 @@
   <meta name="twitter:image:alt" content="Quiet Light — A quiet place to write — and be met" />
  
   <link rel="canonical" href="https://quietlight.app/" />
+  <link rel="alternate" type="text/plain" href="https://quietlight.app/llms.txt" title="LLM information" />
  
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
@@ -50,17 +51,39 @@
     "@graph": [
       {
         "@type": "Organization",
+        "@id": "https://dagazapps.com/#organization",
+        "name": "Dagaz Apps",
+        "legalName": "Dagaz Apps LLC",
+        "url": "https://dagazapps.com",
+        "email": "hello@dagazapps.com"
+      },
+      {
+        "@type": "Organization",
         "@id": "https://quietlight.app/#organization",
         "name": "Quiet Light",
         "legalName": "Dagaz Apps LLC",
         "url": "https://quietlight.app/",
-        "logo": "https://quietlight.app/images/icon-256.png",
+        "email": "support@quietlight.app",
+        "description": "A quiet place to write — and be met. A calm AI companion for reflection.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://quietlight.app/images/icon-256.png",
+          "width": 256,
+          "height": 256
+        },
+        "parentOrganization": { "@id": "https://dagazapps.com/#organization" },
         "sameAs": [
           "https://x.com/QuietLightApp",
           "https://www.instagram.com/quietlightapp/",
           "https://www.tiktok.com/@quietlightapp",
           "https://dagazapps.com"
-        ]
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@quietlight.app",
+          "contactType": "customer support",
+          "availableLanguage": "English"
+        }
       },
       {
         "@type": "WebSite",
@@ -72,7 +95,50 @@
         "inLanguage": "en-US"
       },
       {
+        "@type": "WebPage",
+        "@id": "https://quietlight.app/#webpage",
+        "url": "https://quietlight.app/",
+        "name": "Quiet Light — A quiet place to write — and be met",
+        "description": "A quiet place to write what's on your mind — and be met, not managed. Quiet Light, Quiet Sun, Quiet Moon. Not a coach. Not a clinic.",
+        "isPartOf": { "@id": "https://quietlight.app/#website" },
+        "about": { "@id": "https://quietlight.app/#app" },
+        "mainEntity": { "@id": "https://quietlight.app/#faq" },
+        "publisher": { "@id": "https://quietlight.app/#organization" },
+        "inLanguage": "en-US",
+        "dateModified": "2026-10-06"
+      },
+      {
         "@type": "SoftwareApplication",
+        "@id": "https://quietlight.app/#app",
+        "name": "Quiet Light",
+        "alternateName": "Quiet Light Illuminations",
+        "description": "A quiet place to write what's on your mind — and be met, not managed. Quiet Light, Quiet Sun, Quiet Moon.",
+        "url": "https://quietlight.app/",
+        "image": "https://quietlight.app/images/og-image.png",
+        "applicationCategory": "HealthAndFitnessApplication",
+        "operatingSystem": "iOS, Android",
+        "softwareVersion": "1.3.4",
+        "isAccessibleForFree": true,
+        "featureList": [
+          "Write what's here and be met, not managed",
+          "Start Fresh clears this reflection only",
+          "Release this reflection lets these words go",
+          "Crisis resource lines are tappable when named",
+          "Manage Subscription opens your store's page in one step"
+        ],
+        "downloadUrl": "https://apps.apple.com/us/app/quiet-light-illuminations/id6759539902",
+        "installUrl": "https://apps.apple.com/us/app/quiet-light-illuminations/id6759539902",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": { "@id": "https://quietlight.app/#organization" },
+        "author": { "@id": "https://dagazapps.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://quietlight.app/#app-ios",
         "name": "Quiet Light",
         "alternateName": "Quiet Light Illuminations",
         "description": "A quiet place to write what's on your mind — and be met, not managed. Quiet Light, Quiet Sun, Quiet Moon.",
@@ -80,6 +146,8 @@
         "image": "https://quietlight.app/images/og-image.png",
         "applicationCategory": "HealthAndFitnessApplication",
         "operatingSystem": "iOS",
+        "softwareVersion": "1.3.4",
+        "isAccessibleForFree": true,
         "downloadUrl": "https://apps.apple.com/us/app/quiet-light-illuminations/id6759539902",
         "installUrl": "https://apps.apple.com/us/app/quiet-light-illuminations/id6759539902",
         "offers": {
@@ -91,6 +159,7 @@
       },
       {
         "@type": "SoftwareApplication",
+        "@id": "https://quietlight.app/#app-android",
         "name": "Quiet Light",
         "alternateName": "Quiet Light Illuminations",
         "description": "A quiet place to write what's on your mind — and be met, not managed. Quiet Light, Quiet Sun, Quiet Moon.",
@@ -98,6 +167,8 @@
         "image": "https://quietlight.app/images/og-image.png",
         "applicationCategory": "HealthAndFitnessApplication",
         "operatingSystem": "Android",
+        "softwareVersion": "1.3.4",
+        "isAccessibleForFree": true,
         "downloadUrl": "https://play.google.com/store/apps/details?id=com.dagazapps.quietlight",
         "installUrl": "https://play.google.com/store/apps/details?id=com.dagazapps.quietlight",
         "offers": {
@@ -106,6 +177,46 @@
           "priceCurrency": "USD"
         },
         "publisher": { "@id": "https://quietlight.app/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://quietlight.app/#faq",
+        "url": "https://quietlight.app/#answers",
+        "isPartOf": { "@id": "https://quietlight.app/#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Quiet Light?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Quiet Light is a quiet place to write what's on your mind — and be met, not managed. It is a calm AI companion for reflection, with Quiet Light, Quiet Sun, and Quiet Moon. It is not a coach and not a clinic."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Quiet Light therapy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Quiet Light is not therapy, not a medical device, and not a substitute for professional care."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who makes Quiet Light?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Quiet Light is made by Dagaz Apps LLC, an independent app studio. Support is at support@quietlight.app."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I get Quiet Light?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Quiet Light is free to download on the App Store for iPhone and on Google Play for Android."
+            }
+          }
+        ]
       }
     ]
   }
@@ -250,6 +361,51 @@
 
     .in-app li:last-child {
       border-bottom: 1px solid var(--border);
+    }
+
+    .answers {
+      width: 100%;
+      max-width: 28em;
+      margin: 22px auto 0;
+      text-align: left;
+    }
+
+    .answers h2 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin: 0 0 12px;
+      text-align: center;
+    }
+
+    .answers dl {
+      margin: 0;
+    }
+
+    .answers div {
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .answers div:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .answers dt {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--text);
+      margin: 0 0 4px;
+    }
+
+    .answers dd {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin: 0;
     }
 
     .hero-divider {
@@ -667,7 +823,8 @@
         max-width: 34em;
       }
 
-      .in-app {
+      .in-app,
+      .answers {
         margin-top: 18px;
         max-width: 30em;
       }
@@ -675,6 +832,14 @@
       .in-app li {
         font-size: 0.9rem;
         padding: 6px 0;
+      }
+
+      .answers dt {
+        font-size: 0.9rem;
+      }
+
+      .answers dd {
+        font-size: 0.88rem;
       }
 
       .hero-divider {
@@ -764,13 +929,23 @@
         max-width: 34em;
       }
 
-      .in-app {
+      .in-app,
+      .answers {
         margin-top: 14px;
       }
 
       .in-app li {
         font-size: 0.86rem;
         padding: 5px 0;
+      }
+
+      .answers div {
+        padding: 8px 0;
+      }
+
+      .answers dt,
+      .answers dd {
+        font-size: 0.86rem;
       }
 
       .hero-divider {
@@ -861,6 +1036,28 @@
               <li>Crisis resource lines are tappable when named</li>
               <li>Manage Subscription opens your store's page in one step</li>
             </ul>
+          </section>
+
+          <section class="answers ql-reveal ql-reveal--4" id="answers" aria-labelledby="answers-heading">
+            <h2 id="answers-heading">Answers</h2>
+            <dl>
+              <div>
+                <dt>What is Quiet Light?</dt>
+                <dd>Quiet Light is a quiet place to write what's on your mind — and be met, not managed. It is a calm AI companion for reflection, with Quiet Light, Quiet Sun, and Quiet Moon. It is not a coach and not a clinic.</dd>
+              </div>
+              <div>
+                <dt>Is Quiet Light therapy?</dt>
+                <dd>No. Quiet Light is not therapy, not a medical device, and not a substitute for professional care.</dd>
+              </div>
+              <div>
+                <dt>Who makes Quiet Light?</dt>
+                <dd>Quiet Light is made by Dagaz Apps LLC, an independent app studio. Support is at support@quietlight.app.</dd>
+              </div>
+              <div>
+                <dt>Where can I get Quiet Light?</dt>
+                <dd>Quiet Light is free to download on the App Store for iPhone and on Google Play for Android.</dd>
+              </div>
+            </dl>
           </section>
 
           <div class="hero-divider ql-reveal ql-reveal--4" aria-hidden="true"></div>
