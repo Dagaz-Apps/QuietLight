@@ -48,6 +48,7 @@ Static landing page for [quietlight.app](https://quietlight.app) — hosted on G
 | [`delete-account.html`](delete-account.html) | Public account/data deletion request (Google Play) |
 | [`pause.html`](pause.html) | A quiet place to sit for a moment (`noindex`) |
 | [`changelog.html`](changelog.html) | Updates — version history |
+| [`ig/`](ig/index.html), [`tt/`](tt/index.html), [`threads/`](threads/index.html), [`x/`](x/index.html) | Social short links (`noindex`) → home with UTM |
 | [`robots.txt`](robots.txt) | Crawl rules + sitemap pointer |
 | [`sitemap.xml`](sitemap.xml) | Indexable URLs for Search Console |
 

@@ -5,6 +5,10 @@ Allow: /
 
 # Soft utility pages — keep crawl budget on product content
 Disallow: /pause.html
+Disallow: /ig/
+Disallow: /threads/
+Disallow: /tt/
+Disallow: /x/
 
 User-agent: GPTBot
 Allow: /
