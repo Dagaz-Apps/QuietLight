@@ -3,6 +3,7 @@
 :root {
   --site-header-h: 90px;
   --site-footer-h: 72px;
+  --site-gutter: 20px;
 }
 
 body.has-site-header {
@@ -31,9 +32,9 @@ body.has-site-header {
   display: flex;
   align-items: center;
   gap: 10px 14px;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 8px 20px;
+  width: 100%;
+  margin: 0;
+  padding: 8px var(--site-gutter);
   flex-wrap: wrap;
 }
 
@@ -161,15 +162,15 @@ body.has-site-header {
 
 /* Secondary row — all pages reachable without scrolling */
 .site-header-sub {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0 calc(var(--site-gutter) - 8px);
 }
 
 .site-subnav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 2px 4px;
   padding: 4px 0 6px;
@@ -287,11 +288,13 @@ body.has-site-header {
 }
 
 .site-footer {
-  padding: 12px 20px 14px;
+  width: 100%;
+  padding: 12px var(--site-gutter) 14px;
   background: #F5F5F0;
   border-top: 1px solid #E8E8E5;
   text-align: center;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .site-footer-tagline {
@@ -354,6 +357,26 @@ body.has-site-header {
 
 body.has-site-header > main {
   flex: 1;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --site-gutter: 40px;
+  }
+
+  .site-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 24px;
+    text-align: left;
+  }
+
+  .site-footer-legal {
+    margin: 0;
+  }
 }
 
 @media (max-width: 640px) {
