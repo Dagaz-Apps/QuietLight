@@ -102,10 +102,10 @@
         "description": "A quiet place to write what's on your mind — and be met, not managed. Quiet Light, Quiet Sun, Quiet Moon. Not a coach. Not a clinic.",
         "isPartOf": { "@id": "https://quietlight.app/#website" },
         "about": { "@id": "https://quietlight.app/#app" },
-        "mainEntity": { "@id": "https://quietlight.app/#faq" },
+        "mainEntity": { "@id": "https://quietlight.app/#app" },
         "publisher": { "@id": "https://quietlight.app/#organization" },
         "inLanguage": "en-US",
-        "dateModified": "2026-10-06"
+        "dateModified": "2026-10-08"
       },
       {
         "@type": "SoftwareApplication",
@@ -255,9 +255,9 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      padding: 28px 20px 36px;
+      padding: 28px 20px 48px;
       text-align: center;
       position: relative;
       overflow-x: hidden;
@@ -365,9 +365,12 @@
 
     .answers {
       width: 100%;
-      max-width: 28em;
-      margin: 22px auto 0;
+      max-width: 32em;
+      margin: 48px auto 0;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
       text-align: left;
+      scroll-margin-top: calc(var(--site-header-h, 90px) + 16px);
     }
 
     .answers h2 {
@@ -376,36 +379,58 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text-secondary);
-      margin: 0 0 12px;
+      margin: 0 0 8px;
       text-align: center;
     }
 
-    .answers dl {
-      margin: 0;
-    }
-
-    .answers div {
-      padding: 10px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .answers div:last-child {
+    .answers-list details {
       border-bottom: 1px solid var(--border);
     }
 
-    .answers dt {
+    .answers-list details:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .answers-list summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
       font-size: 0.95rem;
       font-weight: 600;
       line-height: 1.4;
       color: var(--text);
-      margin: 0 0 4px;
+      cursor: pointer;
+      list-style: none;
     }
 
-    .answers dd {
+    .answers-list summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .answers-list summary::after {
+      content: "+";
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .answers-list details[open] summary::after {
+      content: "−";
+    }
+
+    .answers-list summary:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 4px;
+    }
+
+    .answers-list details p {
+      margin: 0 0 14px;
       font-size: 0.92rem;
       line-height: 1.55;
       color: var(--text-secondary);
-      margin: 0;
     }
 
     .hero-divider {
@@ -823,8 +848,7 @@
         max-width: 34em;
       }
 
-      .in-app,
-      .answers {
+      .in-app {
         margin-top: 18px;
         max-width: 30em;
       }
@@ -834,12 +858,9 @@
         padding: 6px 0;
       }
 
-      .answers dt {
-        font-size: 0.9rem;
-      }
-
-      .answers dd {
-        font-size: 0.88rem;
+      .answers {
+        margin-top: 40px;
+        max-width: 32em;
       }
 
       .hero-divider {
@@ -929,8 +950,7 @@
         max-width: 34em;
       }
 
-      .in-app,
-      .answers {
+      .in-app {
         margin-top: 14px;
       }
 
@@ -939,12 +959,17 @@
         padding: 5px 0;
       }
 
-      .answers div {
-        padding: 8px 0;
+      .answers {
+        margin-top: 32px;
+        padding-top: 22px;
       }
 
-      .answers dt,
-      .answers dd {
+      .answers-list summary {
+        padding: 12px 0;
+        font-size: 0.9rem;
+      }
+
+      .answers-list details p {
         font-size: 0.86rem;
       }
 
@@ -1038,28 +1063,6 @@
             </ul>
           </section>
 
-          <section class="answers ql-reveal ql-reveal--4" id="answers" aria-labelledby="answers-heading">
-            <h2 id="answers-heading">Answers</h2>
-            <dl>
-              <div>
-                <dt>What is Quiet Light?</dt>
-                <dd>Quiet Light is a quiet place to write what's on your mind — and be met, not managed. It is a calm AI companion for reflection, with Quiet Light, Quiet Sun, and Quiet Moon. It is not a coach and not a clinic.</dd>
-              </div>
-              <div>
-                <dt>Is Quiet Light therapy?</dt>
-                <dd>No. Quiet Light is not therapy, not a medical device, and not a substitute for professional care.</dd>
-              </div>
-              <div>
-                <dt>Who makes Quiet Light?</dt>
-                <dd>Quiet Light is made by Dagaz Apps LLC, an independent app studio. Support is at support@quietlight.app.</dd>
-              </div>
-              <div>
-                <dt>Where can I get Quiet Light?</dt>
-                <dd>Quiet Light is free to download on the App Store for iPhone and on Google Play for Android.</dd>
-              </div>
-            </dl>
-          </section>
-
           <div class="hero-divider ql-reveal ql-reveal--4" aria-hidden="true"></div>
 
           <section class="download" aria-label="Download">
@@ -1109,6 +1112,28 @@
             What's new
             </button>
           </div>
+
+          <section class="answers" id="answers" aria-labelledby="answers-heading">
+            <h2 id="answers-heading">Answers</h2>
+            <div class="answers-list">
+              <details>
+                <summary>What is Quiet Light?</summary>
+                <p>Quiet Light is a quiet place to write what's on your mind — and be met, not managed. It is a calm AI companion for reflection, with Quiet Light, Quiet Sun, and Quiet Moon. It is not a coach and not a clinic.</p>
+              </details>
+              <details>
+                <summary>Is Quiet Light therapy?</summary>
+                <p>No. Quiet Light is not therapy, not a medical device, and not a substitute for professional care.</p>
+              </details>
+              <details>
+                <summary>Who makes Quiet Light?</summary>
+                <p>Quiet Light is made by Dagaz Apps LLC, an independent app studio. Support is at support@quietlight.app.</p>
+              </details>
+              <details>
+                <summary>Where can I get Quiet Light?</summary>
+                <p>Quiet Light is free to download on the App Store for iPhone and on Google Play for Android.</p>
+              </details>
+            </div>
+          </section>
         </div>
       </div>
     </main>
