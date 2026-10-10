@@ -2,7 +2,19 @@
 
 Newest first. [Full history on the site →](https://quietlight.app/changelog.html)
 
-## 1.3.4 · Latest · October 4, 2026
+## 1.3.5 · Latest · October 10, 2026
+
+**Search, stay signed in & full replies**
+
+- **Search** — Past Reflections matches the words you wrote, plus titles and remembered themes
+- **Stay signed in** — on the order of a year; returning refreshes that time
+- **Full replies** — companion replies paint in full; *italic* and **bold**
+
+Part of **1.3 — Companion depth** ↓
+
+---
+
+## 1.3.4 · Update · October 4, 2026
 
 **Start Fresh, Release & crisis lines**
 
