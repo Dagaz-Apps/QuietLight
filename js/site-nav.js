@@ -15,6 +15,7 @@
     { href: "privacy.html", label: "Privacy" },
     { href: "terms.html", label: "Terms" },
     { href: "disclaimer.html", label: "Disclaimer" },
+    { href: "safety.html", label: "Safety" },
     { action: "support", label: "Support" },
     { href: "delete-account.html", label: "Delete account" },
   ];
