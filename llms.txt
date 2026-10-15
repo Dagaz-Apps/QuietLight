@@ -2,13 +2,15 @@
 
 > A quiet place to write what's on your mind — and be met, not managed. A calm AI companion for reflection. Quiet Light, Quiet Sun, Quiet Moon. Not a coach. Not a clinic. Not therapy, not a medical device, and not a substitute for professional care.
 
-Quiet Light (also called Quiet Light Illuminations) is made by Dagaz Apps LLC, an independent app studio organized in the State of Florida, United States. Current version: 1.3.5. Support: support@quietlight.app.
+Quiet Light (also called Quiet Light Illuminations) is made by Dagaz Apps LLC, an independent app studio organized in the State of Florida, United States. Current version: 1.3.6. Support: support@quietlight.app.
 
 It is free to download on the App Store (iOS) and Google Play (Android).
 
 ## Product
 
 - Write what's here and be met, not managed
+- A daily Silence sit before you write
+- Unsent writing stays in the composer if a send cannot go through
 - Past Reflections search matches the words you wrote
 - Start Fresh clears this reflection only
 - Release this reflection lets these words go
@@ -20,8 +22,9 @@ It is free to download on the App Store (iOS) and Google Play (Android).
 - [Home](https://quietlight.app/): what Quiet Light is, how the app works, download
 - [About](https://quietlight.app/about.html): mission, companions, what it is and is not
 - [Updates](https://quietlight.app/changelog.html): version history
-- [Terms](https://quietlight.app/terms.html): Terms of Service (version 1.2.0)
-- [Privacy](https://quietlight.app/privacy.html): Privacy Policy (version 1.2.0)
+- [Terms](https://quietlight.app/terms.html): Terms of Service (version 1.3.0)
+- [Privacy](https://quietlight.app/privacy.html): Privacy Policy (version 1.3.0)
+- [Safety](https://quietlight.app/safety.html): public crisis protocol
 - [Disclaimer](https://quietlight.app/disclaimer.html): not therapy, not a medical device
 - [Delete account](https://quietlight.app/delete-account.html): how to delete an account
 

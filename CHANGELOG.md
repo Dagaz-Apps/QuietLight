@@ -2,7 +2,20 @@
 
 Newest first. [Full history on the site →](https://quietlight.app/changelog.html)
 
-## 1.3.5 · Latest · October 10, 2026
+## 1.3.6 · Latest · October 14, 2026
+
+**Silence, unsent writing & companion notices**
+
+- **Silence** — sit 3, 5, 10, 15, or 20 minutes, then write
+- **What you wrote stays** — if a send cannot go through, the words remain in the composer
+- **Companion notices** — Quiet Light is an AI companion; companion chatbots may not be suitable for some minors
+- **Terms & Privacy 1.3.0** — returning accounts will be asked to review them; crisis protocol at quietlight.app/safety.html
+
+Part of **1.3 — Companion depth** ↓
+
+---
+
+## 1.3.5 · Update · October 10, 2026
 
 **Search, stay signed in & full replies**
 

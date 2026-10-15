@@ -45,6 +45,7 @@ Static landing page for [quietlight.app](https://quietlight.app) — hosted on G
 | [`about.html`](about.html) | What Quiet Light is — and is not |
 | [`privacy.html`](privacy.html) | Privacy policy |
 | [`terms.html`](terms.html) | Terms of service |
+| [`safety.html`](safety.html) | Public crisis protocol |
 | [`delete-account.html`](delete-account.html) | Public account/data deletion request (Google Play) |
 | [`pause.html`](pause.html) | A quiet place to sit for a moment (`noindex`) |
 | [`changelog.html`](changelog.html) | Updates — version history |
@@ -57,18 +58,19 @@ App source lives separately at [quiet-light-illuminations](https://github.com/ur
 ### SEO notes
 
 - **Canonical host:** `https://quietlight.app` (apex). `www` should 301 → apex (GitHub Pages).
-- **Platforms:** iOS (App Store) and Android (Google Play) — **1.3.5**.
+- **Platforms:** iOS (App Store) and Android (Google Play) — **1.3.6**.
 - **Structured data:** Organization + WebSite + SoftwareApplication (iOS and Android) on the homepage. No fabricated ratings.
 - **Share image:** `images/og-image.png` (1200×630). Favicon: `favicon-32.png`; in-page icon: `icon-256.png`.
 - **Search Console:** Submit `https://quietlight.app/sitemap.xml` after deploy.
 
 ## Changelog
 
-**Current: v1.3.5** — newest first on the site; full history on the changelog page.
+**Current: v1.3.6** — newest first on the site; full history on the changelog page.
 
 | Version | Highlights |
 |---------|------------|
-| **1.3.5** (latest) | Search the words you wrote, year-long sign-in, full replies with italic and bold |
+| **1.3.6** (latest) | Silence sit, unsent writing stays, companion notices, Terms & Privacy 1.3.0 |
+| **1.3.5** | Search the words you wrote, year-long sign-in, full replies with italic and bold |
 | **1.3.4** | Start Fresh, Release, tappable crisis lines, Terms & Privacy 1.2.0 |
 | **1.3.3** | 7-day trial, screen info, quieter header |
 | **1.3.2** | Guiding presence, six reflections a day, confirm email |
