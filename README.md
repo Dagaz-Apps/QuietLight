@@ -47,6 +47,7 @@ Static landing page for [quietlight.app](https://quietlight.app) — hosted on G
 | [`terms.html`](terms.html) | Terms of service |
 | [`safety.html`](safety.html) | Public crisis protocol |
 | [`delete-account.html`](delete-account.html) | Public account/data deletion request (Google Play) |
+| [`support.html`](support.html) | Support form (honeypot + posts to dagazapps.com/api/support) |
 | [`pause.html`](pause.html) | A quiet place to sit for a moment (`noindex`) |
 | [`changelog.html`](changelog.html) | Updates — version history |
 | [`ig/`](ig/index.html), [`tt/`](tt/index.html), [`threads/`](threads/index.html), [`x/`](x/index.html) | Social short links (`noindex`) → home with UTM |
