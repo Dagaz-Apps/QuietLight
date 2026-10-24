@@ -1,9 +1,26 @@
-/* Shared site navigation — Quiet Light */
+/* Shared site navigation — Quiet Light
+   Palette shared with dagazapps.com: warm stone + dusty gold for links/focus. */
 
 :root {
   --site-header-h: 90px;
   --site-footer-h: 72px;
   --site-gutter: 20px;
+
+  --text: #1A1A1A;
+  --text-secondary: #57544E; /* ≥4.5:1 on #FAFAF7 */
+  --background-root: #FAFAF7;
+  --background-default: #FFFFFF;
+  --background-secondary: #F5F5F0;
+  --border: #E8E8E5;
+  --accent: #7A6540; /* dusty gold — links and focus only */
+  --accent-hover: #5E4D30;
+  --ring: #7A6540;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
 }
 
 body.has-site-header {
@@ -74,7 +91,7 @@ body.has-site-header {
   padding: 8px 14px;
   font-size: 0.92rem;
   font-weight: 500;
-  color: #8A8A8A;
+  color: var(--text-secondary);
   text-decoration: none;
   border-radius: 999px;
   transition: color 0.2s ease, background 0.2s ease;
@@ -123,7 +140,7 @@ body.has-site-header {
   justify-content: center;
   width: 32px;
   height: 32px;
-  color: #8A8A8A;
+  color: var(--text-secondary);
   border-radius: 50%;
   text-decoration: none;
   transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
@@ -180,7 +197,7 @@ body.has-site-header {
   padding: 6px 12px;
   font-size: 0.82rem;
   font-weight: 500;
-  color: #8A8A8A;
+  color: var(--text-secondary);
   text-decoration: none;
   border-radius: 999px;
   transition: color 0.2s ease, background 0.2s ease;
@@ -205,7 +222,7 @@ body.has-site-header {
   font: inherit;
   font-size: 0.82rem;
   font-weight: 500;
-  color: #8A8A8A;
+  color: var(--text-secondary);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -241,7 +258,7 @@ body.has-site-header {
   margin: 0 0 10px;
   font-size: 0.78rem;
   line-height: 1.45;
-  color: #8A8A8A;
+  color: var(--text-secondary);
 }
 
 .site-support-email-row {
@@ -297,10 +314,18 @@ body.has-site-header {
   box-sizing: border-box;
 }
 
+.site-footer-disclaimer {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 42em;
+}
+
 .site-footer-tagline {
   margin: 0;
   font-size: 0.85rem;
-  color: #8A8A8A;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -311,24 +336,24 @@ body.has-site-header {
   justify-content: center;
   align-items: center;
   gap: 4px 8px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   line-height: 1.4;
-  color: #8A8A8A;
+  color: var(--text-secondary);
 }
 
 .site-footer-legal a {
-  color: #8A8A8A;
+  color: var(--accent);
   text-decoration: none;
 }
 
 .site-footer-legal a:hover,
 .site-footer-legal a:focus-visible {
-  color: #1A1A1A;
+  color: var(--accent-hover);
   text-decoration: underline;
 }
 
 .site-footer-copy {
-  color: #8A8A8A;
+  color: var(--text-secondary);
 }
 
 .skip-link {
@@ -365,13 +390,17 @@ body.has-site-header > main {
   }
 
   .site-footer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
     justify-content: space-between;
     gap: 8px 24px;
     text-align: left;
+  }
+
+  .site-footer-disclaimer {
+    grid-column: 1 / -1;
+    margin: 0 0 4px;
   }
 
   .site-footer-legal {
@@ -435,15 +464,8 @@ body.has-site-header > main {
   .site-header-actions {
     flex: 1 0 100%;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 8px;
-  }
-
-  .site-cta {
-    flex: 1;
-    justify-content: center;
-    text-align: center;
-    padding: 8px 14px;
   }
 
   .site-social {

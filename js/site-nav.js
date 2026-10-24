@@ -1,6 +1,4 @@
 (function () {
-  var STORE_URL =
-    "https://apps.apple.com/us/app/quiet-light-illuminations/id6759539902";
   var SUPPORT_EMAIL = "support@quietlight.app";
 
   var mainNav = [
@@ -196,9 +194,6 @@
     socialSvg.tiktok +
     "</a>" +
     "</div>" +
-    '<a href="' +
-    STORE_URL +
-    '" class="site-cta" target="_blank" rel="noopener noreferrer">Get the app</a>' +
     "</div></div></div>" +
     '<div class="site-header-sub">' +
     '<nav class="site-subnav" aria-label="Site pages">' +
@@ -243,6 +238,7 @@
   footer.className = "site-footer";
   var year = new Date().getFullYear();
   footer.innerHTML =
+    '<p class="site-footer-disclaimer">Quiet Light is not therapy, not a medical device, and not a substitute for professional care. If things feel heavy, help is always one tap away.</p>' +
     '<p class="site-footer-tagline ql-breath">Stillness is already complete.</p>' +
     '<nav class="site-footer-legal" aria-label="Legal">' +
     '<a href="privacy.html">Privacy</a>' +

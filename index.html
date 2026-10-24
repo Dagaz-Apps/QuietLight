@@ -105,7 +105,7 @@
         "mainEntity": { "@id": "https://quietlight.app/#app" },
         "publisher": { "@id": "https://quietlight.app/#organization" },
         "inLanguage": "en-US",
-        "dateModified": "2026-10-23"
+        "dateModified": "2026-10-24"
       },
       {
         "@type": "SoftwareApplication",
@@ -230,11 +230,14 @@
   <style>
     :root {
       --text: #1A1A1A;
-      --text-secondary: #8A8A8A;
+      --text-secondary: #57544E;
       --background-root: #FAFAF7;
       --background-default: #FFFFFF;
       --background-secondary: #F5F5F0;
       --border: #E8E8E5;
+      --accent: #7A6540;
+      --accent-hover: #5E4D30;
+      --ring: #7A6540;
       --spacing-xl: 48px;
       --spacing-lg: 32px;
       --spacing-md: 24px;
@@ -247,7 +250,8 @@
       margin: 0;
       padding: 0;
       min-height: 100%;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+      font-size: 17px;
       background: var(--background-root);
       color: var(--text);
     }
@@ -302,31 +306,28 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      margin: 0 0 10px;
-      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      line-height: 1.12;
+      max-width: 10em;
     }
 
     .tagline {
       font-size: 1.2rem;
       font-weight: 400;
       color: var(--text);
-      margin: 0 0 12px;
+      margin: 0 0 16px;
       line-height: 1.4;
     }
 
     .lede {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--text);
       margin: 0;
-      max-width: 32em;
-    }
-
-    .lede + .lede {
-      margin-top: 0.85em;
+      max-width: 28em;
     }
 
     .in-app {
@@ -353,19 +354,47 @@
     }
 
     .in-app li {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: var(--text-secondary);
-      padding: 8px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .in-app li:first-child {
+      font-size: 1.05rem;
+      line-height: 1.55;
       color: var(--text);
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
     }
 
     .in-app li:last-child {
       border-bottom: 1px solid var(--border);
+    }
+
+    .plans {
+      width: 100%;
+      max-width: 28em;
+      margin: 28px auto 0;
+      text-align: left;
+    }
+
+    .plan {
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .plan:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plan h2 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin: 0 0 6px;
+    }
+
+    .plan p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--text);
     }
 
     .answers {
@@ -427,14 +456,14 @@
     }
 
     .answers-list summary:focus-visible {
-      outline: 2px solid var(--text);
+      outline: 2px solid var(--ring);
       outline-offset: 4px;
     }
 
     .answers-list details p {
       margin: 0 0 14px;
-      font-size: 0.92rem;
-      line-height: 1.55;
+      font-size: 1rem;
+      line-height: 1.6;
       color: var(--text-secondary);
     }
 
@@ -511,12 +540,13 @@
       opacity: 0.92;
     }
     .store-cta:focus-visible {
-      outline: 2px solid var(--text);
+      outline: 2px solid var(--ring);
       outline-offset: 3px;
     }
 
-    /* QR: fixed square — never stretch or sit beside the badge on mobile */
+    /* QR: desktop only — mobile shows store buttons */
     .qr {
+      display: none;
       margin: 0;
       padding: 12px 12px 10px;
       width: max-content;
@@ -525,7 +555,6 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-      display: flex;
       flex-direction: column;
       align-items: center;
       box-sizing: border-box;
@@ -583,7 +612,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
     .whats-new-btn:focus-visible {
-      outline: 2px solid var(--text);
+      outline: 2px solid var(--ring);
       outline-offset: 2px;
     }
     .whats-new-btn svg {
@@ -651,7 +680,7 @@
       background: var(--background-secondary);
     }
     .whats-new-close:focus-visible {
-      outline: 2px solid var(--text);
+      outline: 2px solid var(--ring);
       outline-offset: 2px;
     }
     .whats-new-title {
@@ -702,12 +731,13 @@
       text-align: center;
     }
     .whats-new-footer a {
-      color: var(--text);
+      color: var(--accent);
       text-decoration: none;
       border-bottom: 1px solid var(--border);
     }
     .whats-new-footer a:hover {
-      border-bottom-color: var(--text);
+      color: var(--accent-hover);
+      border-bottom-color: var(--accent);
     }
     .whats-new-latest {
       font-size: 0.88rem;
@@ -780,8 +810,9 @@
     }
 
     @media (max-width: 640px) {
-      h1 { font-size: 2.25rem; }
-      .tagline { font-size: 1.1rem; }
+      h1 { font-size: 2.75rem; }
+      .tagline { font-size: 1.15rem; }
+      .lede { font-size: 1.0625rem; }
       .app-icon { width: 100px; height: 100px; border-radius: 24px; }
       .icon-aura { margin-bottom: 18px; }
       .whats-new-modal { padding: var(--spacing-md); }
@@ -820,29 +851,33 @@
       }
 
       h1 {
-        font-size: 2.5rem;
-        margin-bottom: 8px;
-      }
-
-      .tagline {
-        font-size: 1.15rem;
+        font-size: 3.5rem;
         margin-bottom: 10px;
       }
 
+      .tagline {
+        font-size: 1.25rem;
+        margin-bottom: 14px;
+      }
+
       .lede {
-        font-size: 0.98rem;
-        line-height: 1.55;
-        max-width: 34em;
+        font-size: 1.125rem;
+        line-height: 1.65;
+        max-width: 28em;
       }
 
       .in-app {
-        margin-top: 18px;
+        margin-top: 28px;
         max-width: 36em;
       }
 
       .in-app li {
-        font-size: 0.9rem;
-        padding: 6px 0;
+        font-size: 1.05rem;
+        padding: 10px 0;
+      }
+
+      .qr {
+        display: flex;
       }
 
       .answers {
@@ -937,13 +972,19 @@
         text-align: left;
       }
 
+      .plans {
+        grid-column: 1;
+        margin-top: 28px;
+        max-width: none;
+      }
+
       .hero-divider {
         display: none;
       }
 
       .download {
         grid-column: 2;
-        grid-row: 1 / span 2;
+        grid-row: 1 / span 3;
         padding-top: 12px;
       }
 
@@ -979,18 +1020,18 @@
       }
 
       h1 {
-        font-size: 2.1rem;
-        margin-bottom: 6px;
-      }
-
-      .tagline {
-        font-size: 1.05rem;
+        font-size: 3rem;
         margin-bottom: 8px;
       }
 
+      .tagline {
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+      }
+
       .lede {
-        font-size: 0.92rem;
-        max-width: 34em;
+        font-size: 1.0625rem;
+        max-width: 28em;
       }
 
       .in-app {
@@ -1060,6 +1101,20 @@
         height: 72px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .whats-new-overlay {
+        transition: opacity 0.9s ease, visibility 0.9s ease;
+      }
+      .whats-new-modal {
+        transform: none;
+        transition: opacity 0.9s ease;
+      }
+      .store-cta,
+      .whats-new-btn {
+        transition: opacity 0.9s ease, border-color 0.9s ease, box-shadow 0.9s ease;
+      }
+    }
   </style>
 </head>
 <body class="page-home">
@@ -1088,10 +1143,7 @@
             <h1 class="ql-reveal ql-reveal--2">Quiet Light</h1>
             <p class="tagline ql-reveal ql-reveal--3">Gentle presence for stillness</p>
             <p class="lede ql-reveal ql-reveal--3">
-              A quiet place to write what's on your mind — and be met, not managed. Quiet Light, Quiet Sun, Quiet Moon. Not a coach. Not a clinic.
-            </p>
-            <p class="lede ql-reveal ql-reveal--3">
-              A calm AI companion for reflection — warm, spacious, and free of prescriptions or verdicts. Not therapy, not a medical device, and not a substitute for professional care.
+              A quiet place to write what's on your mind — and be met, not managed.
             </p>
           </section>
 
@@ -1099,22 +1151,25 @@
             <h2 id="in-app-heading">In the app</h2>
             <ul>
               <li>Write what's here and be met, not managed</li>
-              <li>A daily Silence sit before you write, with a gentle return to the page</li>
-              <li>Past Reflections search looks through the words you wrote (Premium)</li>
-              <li>Start Fresh clears this reflection only</li>
-              <li>Release this reflection lets these words go</li>
+              <li>A Silence sit when you want one, with a gentle return to the page</li>
               <li>Keep what mattered in Saved Passages</li>
-              <li>Hear replies in your phone's own voice, if you'd like, even with your iPhone on silent</li>
-              <li>Text follows your phone's size, with High Contrast across the app</li>
-              <li>If things feel heavy, help is always one tap away</li>
-              <li>Manage Subscription opens your store's page in one step</li>
             </ul>
+          </section>
+
+          <section class="plans ql-reveal ql-reveal--4" aria-label="Free and Premium">
+            <div class="plan">
+              <h2>Free</h2>
+              <p>Quiet Light, one conversation</p>
+            </div>
+            <div class="plan">
+              <h2>Premium</h2>
+              <p>Quiet Sun and Quiet Moon, more conversations, search, Memory Garden, and the weekly letter</p>
+            </div>
           </section>
 
           <div class="hero-divider ql-reveal ql-reveal--4" aria-hidden="true"></div>
 
           <section class="download" aria-label="Download">
-            <h2 class="download-prompt ql-reveal ql-reveal--4">Begin when you're ready</h2>
 
             <div class="store-buttons ql-reveal ql-reveal--5">
               <div class="store-ios">

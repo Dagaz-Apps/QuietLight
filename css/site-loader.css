@@ -70,7 +70,7 @@ html.is-ready #root > main {
   z-index: 1;
   margin: 0;
   font-size: 1.05rem;
-  color: #8A8A8A;
+  color: var(--text-secondary, #57544E);
   letter-spacing: 0.02em;
   transition: opacity 0.35s ease;
 }
@@ -81,9 +81,9 @@ html.is-ready #root > main {
 
 @media (prefers-reduced-motion: reduce) {
   .site-loader-glow { animation: none; opacity: 0.6; }
-  .site-loader-ring { animation: none; border-top-color: #8A8A8A; }
+  .site-loader-ring { animation: none; border-top-color: var(--text-secondary, #57544E); }
   html.is-ready main,
   html.is-ready #root > main {
-    transition: none;
+    transition: opacity 0.9s ease;
   }
 }

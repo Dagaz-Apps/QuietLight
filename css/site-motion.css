@@ -288,7 +288,12 @@ html.is-ready .whats-new-btn.ql-invite {
   filter: drop-shadow(0 8px 16px rgba(180, 150, 80, 0.18));
 }
 
-/* ── Reduced motion: stillness wins ── */
+/* ── Reduced motion: slow fade only ── */
+
+@keyframes ql-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .ambient-glow,
@@ -314,16 +319,23 @@ html.is-ready .whats-new-btn.ql-invite {
     opacity: 0.5;
   }
 
-  .ql-reveal,
-  html.is-ready .ql-reveal {
-    opacity: 1;
+  .ql-reveal {
+    opacity: 0;
     transform: none;
-    animation: none;
+  }
+
+  html.is-ready .ql-reveal {
+    transform: none;
+    animation: ql-fade 0.9s ease forwards;
+    animation-delay: var(--reveal-delay, 0s);
   }
 
   .icon-aura:hover .app-icon,
   .icon-aura:hover img,
-  .site-brand:hover .site-brand-icon {
+  .site-brand:hover .site-brand-icon,
+  .site-social-link:hover,
+  .store-cta:hover,
+  .whats-new-btn:hover {
     transform: none;
   }
 }
