@@ -2,7 +2,20 @@
 
 Newest first. [Full history on the site →](https://quietlight.app/changelog.html)
 
-## 1.3.6 · Latest · October 14, 2026
+## 1.4.0 · Latest · October 23, 2026
+
+**Premium, Memory Garden, Read aloud & easier to read**
+
+- **Premium, plainly** — up to 30 reflections a day, and a plain list of what's included, with one labelled example of the weekly letter and Garden phrases
+- **Memory Garden** — phrases gather when a conversation ends; what you kept stays where you left it
+- **Read aloud** — hear replies in your phone's own voice, if you'd like, even with your iPhone on silent; a calm note shows if a voice can't play
+- **A gentler end to Silence** — when the timer ends, the page returns gently, with VoiceOver and TalkBack too
+- **Help, one tap away** — if things feel heavy, help is always one tap away, even when today's reflections are complete
+- **Easier to read** — text follows your phone's size; High Contrast covers the whole app; small text is clearer and screen readers get better headings and announcements
+
+---
+
+## 1.3.6 · Update · October 14, 2026
 
 **Silence, unsent writing & companion notices**
 

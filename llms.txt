@@ -2,19 +2,21 @@
 
 > A quiet place to write what's on your mind — and be met, not managed. A calm AI companion for reflection. Quiet Light, Quiet Sun, Quiet Moon. Not a coach. Not a clinic. Not therapy, not a medical device, and not a substitute for professional care.
 
-Quiet Light (also called Quiet Light Illuminations) is made by Dagaz Apps LLC, an independent app studio organized in the State of Florida, United States. Current version: 1.3.6. Support: support@quietlight.app.
+Quiet Light (also called Quiet Light Illuminations) is made by Dagaz Apps LLC, an independent app studio organized in the State of Florida, United States. Current version: 1.4.0. Support: support@quietlight.app.
 
 It is free to download on the App Store (iOS) and Google Play (Android).
 
 ## Product
 
 - Write what's here and be met, not managed
-- A daily Silence sit before you write
-- Unsent writing stays in the composer if a send cannot go through
-- Past Reflections search matches the words you wrote
+- A daily Silence sit before you write, with a gentle return to the page
+- Past Reflections search looks through the words you wrote (Premium)
 - Start Fresh clears this reflection only
 - Release this reflection lets these words go
-- Crisis resource lines (including 988, 741741, and IASP) are tappable when named
+- Keep what mattered in Saved Passages
+- Hear replies in your phone's own voice, if you'd like, even with your iPhone on silent
+- Text follows your phone's size, with High Contrast across the app
+- If things feel heavy, help is always one tap away
 - Manage Subscription opens the store's subscription page in one step
 
 ## Pages
