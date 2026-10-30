@@ -330,72 +330,15 @@
       max-width: 28em;
     }
 
-    .in-app {
-      width: 100%;
-      max-width: 28em;
-      margin: 22px auto 0;
-      text-align: left;
-    }
 
-    .in-app h2 {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin: 0 0 12px;
-      text-align: center;
-    }
 
-    .in-app ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
 
-    .in-app li {
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: var(--text);
-      padding: 10px 0;
-      border-top: 1px solid var(--border);
-    }
 
-    .in-app li:last-child {
-      border-bottom: 1px solid var(--border);
-    }
 
-    .plans {
-      width: 100%;
-      max-width: 28em;
-      margin: 28px auto 0;
-      text-align: left;
-    }
 
-    .plan {
-      padding: 16px 0;
-      border-top: 1px solid var(--border);
-    }
 
-    .plan:last-child {
-      border-bottom: 1px solid var(--border);
-    }
 
-    .plan h2 {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin: 0 0 6px;
-    }
 
-    .plan p {
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: var(--text);
-    }
 
     .answers {
       width: 100%;
@@ -866,15 +809,7 @@
         max-width: 28em;
       }
 
-      .in-app {
-        margin-top: 28px;
-        max-width: 36em;
-      }
 
-      .in-app li {
-        font-size: 1.05rem;
-        padding: 10px 0;
-      }
 
       .qr {
         display: flex;
@@ -962,21 +897,8 @@
         max-width: none;
       }
 
-      .in-app {
-        grid-column: 1;
-        margin-top: 24px;
-        max-width: none;
-      }
 
-      .in-app h2 {
-        text-align: left;
-      }
 
-      .plans {
-        grid-column: 1;
-        margin-top: 28px;
-        max-width: none;
-      }
 
       .hero-divider {
         display: none;
@@ -1034,14 +956,7 @@
         max-width: 28em;
       }
 
-      .in-app {
-        margin-top: 14px;
-      }
 
-      .in-app li {
-        font-size: 0.86rem;
-        padding: 5px 0;
-      }
 
       .answers {
         margin-top: 32px;
@@ -1115,6 +1030,72 @@
         transition: opacity 0.9s ease, border-color 0.9s ease, box-shadow 0.9s ease;
       }
     }
+
+    /* Three companions (option A) — static cards, fixed tint per companion; text names the plan, so tint is never the only cue */
+    .companions { width: 100%; max-width: 28em; margin: 28px auto 0; text-align: left; }
+    .companions h2 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); margin: 0 0 12px; text-align: center; }
+    .companion-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5em, 1fr)); gap: 12px; }
+    .companion-card { border: 1px solid var(--border); border-radius: 16px; padding: 16px 16px 14px; background: #FBF6EA; }
+    .companion-card--sun { background: #F6EBD3; }
+    .companion-card--moon { background: #EDEFF3; }
+    .companion-card h3 { margin: 0 0 4px; font-size: 1.05rem; font-weight: 600; line-height: 1.3; color: var(--text); }
+    .companion-desc { margin: 0; font-size: 0.95rem; line-height: 1.45; color: var(--text-secondary); }
+    .companion-plan { margin: 10px 0 0; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-hover); }
+    .companion-plan .nowrap { display: inline-block; max-width: 100%; }
+    .companions-note { margin: 6px 0 0; }
+    .companion-list + .companions-note { margin-top: 12px; }
+    .companions-note { font-size: 1rem; line-height: 1.55; color: var(--text); }
+    @media (min-width: 960px) {
+      .companions { grid-column: 1; max-width: none; margin-top: 28px; }
+      .companions h2 { text-align: left; }
+    }
+    @media (max-width: 640px) {
+      .companion-list { grid-template-columns: 1fr; gap: 10px; }
+      .companion-card { padding: 14px 16px; }
+      .companion-plan { margin-top: 6px; }
+    }
+    @media print { .companion-card { background: none; } }
+
+    /* ══ Wide desktop layout (proposal). Phones/tablets untouched. Below 64em (1024 px at default text size,
+          more with larger browser text) the page stacks in today's order, so large text never gets squeezed. ══ */
+    @media (min-width: 960px) and (max-width: 63.99em) {
+      .content { display: flex; flex-direction: column; align-items: center; }
+      .hero { align-items: center; text-align: center; }
+      .typing, .companions, .answers { max-width: 28em; }
+      .hero-divider { display: block; }
+    }
+    @media (min-width: 64em) {
+      body.page-home main { padding-left: clamp(32px, 4vw, 64px); padding-right: clamp(32px, 4vw, 64px); }
+      .wrapper { max-width: 1200px; }
+      .content { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(24px, 3vw, 48px); row-gap: 0; }
+      .hero { grid-column: 1 / span 6; grid-row: 1; align-self: center; padding: 16px 0 8px; }
+      .hero h1 { font-size: clamp(3.75rem, 5.4vw, 5.75rem); line-height: 1.02; letter-spacing: -0.04em; max-width: none; margin-bottom: 18px; }
+      .tagline { font-size: 1.5rem; margin-bottom: 18px; }
+      .lede { font-size: 1.25rem; max-width: 26em; }
+      .typing { grid-column: 8 / span 5; grid-row: 1; align-self: center; margin-top: 0; max-width: none; }
+      .hero-divider { display: none; }
+      .hero .ql-motion-toggle { align-self: flex-start; margin: 20px 0 0 -12px; }
+      .version-row { grid-column: 1 / -1; margin-top: 40px; }
+      .answers-list details p { max-width: 65ch; }
+    }
+
+    /* V1 · Editorial: asymmetric hero, full-width companions, store band, sticky "Answers" rail */
+    @media (min-width: 64em) {
+      .companions { grid-column: 1 / -1; grid-row: 2; margin-top: 88px; }
+      .companion-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .companion-card { display: flex; flex-direction: column; min-height: 13rem; padding: 28px 28px 24px; border-radius: 20px; }
+      .companion-card h3 { font-size: 1.75rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+      .companion-desc { font-size: 1.1rem; }
+      .companion-plan { margin-top: auto; padding-top: 24px; }
+      .companions-note { max-width: 65ch; }
+      .download { grid-column: 1 / -1; grid-row: 3; margin-top: 56px; padding: 28px 36px; border: 1px solid var(--border); border-radius: 20px; background: var(--background-default); }
+      .store-buttons { width: 100%; flex-direction: row; justify-content: space-around; align-items: center; gap: 48px; }
+      .store-ios, .store-android { flex-direction: row; align-items: center; gap: 24px; }
+      .version-row { grid-row: 4; }
+      .answers { grid-column: 1 / -1; grid-row: 5; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(24px, 3vw, 48px); margin-top: 56px; }
+      .answers h2 { grid-column: 1 / span 4; align-self: start; position: sticky; top: calc(var(--site-header-h, 101px) + 24px); text-align: left; font-size: 2rem; letter-spacing: -0.02em; text-transform: none; color: var(--text); font-weight: 600; }
+      .answers-list { grid-column: 5 / -1; }
+    }
   </style>
 </head>
 <body class="page-home">
@@ -1154,24 +1135,27 @@
             </div>
           </section>
 
-          <section class="in-app" aria-labelledby="in-app-heading">
-            <h2 id="in-app-heading" class="ql-rise">In the app</h2>
-            <ul>
-              <li>Write what's here and be met, not managed</li>
-              <li>A Silence sit when you want one, with a gentle return to the page</li>
-              <li>Keep what mattered in Saved Passages</li>
+          <section class="companions" aria-labelledby="companions-heading">
+            <h2 id="companions-heading" class="ql-rise">Three companions</h2>
+            <ul class="companion-list">
+              <li class="companion-card companion-card--light">
+                <h3>Quiet Light</h3>
+                <p class="companion-desc">Clear and minimal.</p>
+                <p class="companion-plan"><span class="nowrap">Free ·</span> <span class="nowrap">Also in Premium</span></p>
+              </li>
+              <li class="companion-card companion-card--sun">
+                <h3>Quiet Sun</h3>
+                <p class="companion-desc">Radiant and warm.</p>
+                <p class="companion-plan">Premium</p>
+              </li>
+              <li class="companion-card companion-card--moon">
+                <h3>Quiet Moon</h3>
+                <p class="companion-desc">Soft and nurturing.</p>
+                <p class="companion-plan">Premium</p>
+              </li>
             </ul>
-          </section>
-
-          <section class="plans" aria-label="Free and Premium">
-            <div class="plan">
-              <h2 class="ql-rise">Free</h2>
-              <p><span class="ql-companion ql-companion--light">Quiet Light</span>, one conversation</p>
-            </div>
-            <div class="plan">
-              <h2 class="ql-rise">Premium</h2>
-              <p><span class="ql-companion ql-companion--sun">Quiet Sun</span> and <span class="ql-companion ql-companion--moon">Quiet Moon</span>, more conversations, search, Memory Garden, and the weekly letter</p>
-            </div>
+            <p class="companions-note">Free includes Quiet Light and one conversation.</p>
+            <p class="companions-note">Premium includes all three companions, plus more conversations, search, Memory Garden, and the weekly letter.</p>
           </section>
 
           <div class="hero-divider" aria-hidden="true"></div>
