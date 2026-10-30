@@ -2,7 +2,7 @@
    Palette shared with dagazapps.com: warm stone + dusty gold for links/focus. */
 
 :root {
-  --site-header-h: 90px;
+  --site-header-h: 101px; /* measured Oct 29 (desktop, system font); JS keeps it exact */
   --site-footer-h: 72px;
   --site-gutter: 20px;
 
@@ -23,6 +23,8 @@
   outline-offset: 3px;
 }
 
+/* Reserve the fixed header's space before site-nav.js injects it (no load shift now the loader is retired). */
+html body,
 body.has-site-header {
   padding-top: var(--site-header-h);
   min-height: 100vh;
@@ -411,9 +413,10 @@ body.has-site-header > main {
 @media (max-width: 640px) {
   /* Fallback until JS measures the real fixed header height */
   :root {
-    --site-header-h: 148px;
+    --site-header-h: 131px; /* measured Oct 29 (≤640px); JS keeps it exact */
   }
 
+  html body,
   body.has-site-header {
     padding-top: var(--site-header-h);
   }

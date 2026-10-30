@@ -1,341 +1,156 @@
-/* Quiet Light — soft motion language
-   Breath, glow, and gentle arrival. Never flashy. */
+/* Quiet Light — soft motion language (animation pass, Oct 29 2026)
+   Slow, subtle, calm. Only opacity + transform. No bounce, no urgency.
+   One glow behind the icon (home only), one heading rise, one typing example. */
 
 :root {
-  --ql-glow-warm: rgba(255, 246, 220, 0.85);
-  --ql-glow-soft: rgba(250, 248, 240, 0.7);
-  --ql-glow-moon: rgba(230, 236, 245, 0.45);
-  --ql-mote: rgba(180, 160, 120, 0.35);
-  --ql-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-breathe: cubic-bezier(0.37, 0, 0.63, 1);
+  --ease-arrive: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ql-ease: var(--ease-arrive);
 }
 
-/* ── Ambient light field (home & contemplative pages) ── */
+/* With the loader retired the page paints while still parsing; keep the scrollbar
+   gutter steady so the late-appearing scrollbar never nudges the layout (CLS 0). */
+html { scrollbar-gutter: stable; }
 
-.ambient {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
+/* Retired: extra glows, motes, ambient field. Kept hidden in case cached markup remains. */
+.ambient, .ambient-glow, .ambient-mote { display: none !important; }
 
-.ambient-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(2px);
-  will-change: transform, opacity;
-}
-
-.ambient-glow--primary {
-  width: min(420px, 70vw);
-  height: min(420px, 70vw);
-  left: 50%;
-  top: 42%;
-  translate: -50% -50%;
-  background: radial-gradient(
-    circle,
-    var(--ql-glow-warm) 0%,
-    var(--ql-glow-soft) 38%,
-    transparent 70%
-  );
-  animation: ql-breathe 9s ease-in-out infinite;
-}
-
-.ambient-glow--secondary {
-  width: min(280px, 50vw);
-  height: min(280px, 50vw);
-  left: 58%;
-  top: 36%;
-  translate: -50% -50%;
-  background: radial-gradient(circle, var(--ql-glow-moon) 0%, transparent 68%);
-  animation: ql-breathe 11s ease-in-out 1.5s infinite reverse;
-  opacity: 0.7;
-}
-
-.ambient-glow--tertiary {
-  width: min(200px, 40vw);
-  height: min(200px, 40vw);
-  left: 38%;
-  top: 52%;
-  translate: -50% -50%;
-  background: radial-gradient(circle, rgba(255, 236, 200, 0.4) 0%, transparent 70%);
-  animation: ql-breathe 13s ease-in-out 0.8s infinite;
-  opacity: 0.55;
-}
-
-/* Soft dust motes — sparse, slow, luminous */
-.ambient-mote {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--ql-mote);
-  box-shadow: 0 0 6px 1px rgba(255, 240, 200, 0.45);
-  left: var(--x, 50%);
-  top: var(--y, 50%);
-  opacity: 0;
-  animation: ql-mote var(--dur, 14s) ease-in-out var(--delay, 0s) infinite;
-}
-
-@keyframes ql-breathe {
-  0%, 100% {
-    opacity: 0.45;
-    transform: scale(0.92);
-  }
-  50% {
-    opacity: 0.95;
-    transform: scale(1.08);
-  }
-}
-
-@keyframes ql-mote {
-  0% {
-    opacity: 0;
-    transform: translate(0, 8px) scale(0.6);
-  }
-  15% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 0.9;
-    transform: translate(var(--drift-x, 12px), -28px) scale(1);
-  }
-  85% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(calc(var(--drift-x, 12px) * 1.4), -52px) scale(0.5);
-  }
-}
-
-/* ── Icon aura ── */
-
-.icon-aura {
-  position: relative;
-  display: inline-block;
-  line-height: 0;
-}
-
+/* ── Icon glow (static everywhere; breathes only on the home hero) ── */
+.icon-aura { position: relative; display: inline-block; line-height: 0; }
 .icon-aura::before {
   content: "";
   position: absolute;
-  inset: -28%;
+  inset: -36%;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 244, 210, 0.75) 0%,
-    rgba(255, 248, 230, 0.25) 45%,
-    transparent 70%
-  );
+  background: radial-gradient(closest-side, rgba(255, 246, 220, 1) 0%, rgba(255, 246, 220, 0.5) 40%, rgba(255, 246, 220, 0) 70%);
+  opacity: 0.55;
   z-index: -1;
-  animation: ql-breathe 7s ease-in-out infinite;
   pointer-events: none;
 }
-
-.icon-aura .app-icon,
-.icon-aura img {
-  position: relative;
-  transition: transform 0.6s var(--ql-ease), box-shadow 0.6s var(--ql-ease);
+.icon-aura[data-ql-glow]::before {
+  will-change: opacity;
+  animation: ql-glow 10s var(--ease-breathe) 6 both;
 }
-
-.icon-aura:hover .app-icon,
-.icon-aura:hover img {
+.icon-aura.is-paused::before { animation-play-state: paused; }
+@keyframes ql-glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
+.icon-aura .app-icon, .icon-aura img {
+  position: relative;
+  transition: transform 0.6s var(--ease-arrive), box-shadow 0.6s var(--ease-arrive);
+}
+.icon-aura:hover .app-icon, .icon-aura:hover img {
   transform: scale(1.03);
   box-shadow: 0 12px 36px rgba(180, 150, 80, 0.18);
 }
 
-/* Soft shimmer ring on aura (very subtle) */
-.icon-aura::after {
-  content: "";
-  position: absolute;
-  inset: -6%;
-  border-radius: inherit;
-  border: 1px solid rgba(200, 180, 140, 0.18);
-  border-radius: 28px;
-  opacity: 0;
-  animation: ql-ring 8s ease-in-out infinite;
-  pointer-events: none;
+/* Pause control — quiet text button, hero bottom-right */
+.ql-motion-toggle {
+  display: none;
+  align-self: flex-end;
+  margin: 12px 0 0;
+  min-height: 44px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--text-secondary, #57544E);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+html.js .ql-motion-toggle { display: inline-flex; align-items: center; }
+.ql-motion-toggle:hover { color: var(--text, #1A1A1A); text-decoration: underline; text-underline-offset: 3px; }
+.ql-motion-toggle:focus-visible { outline: 2px solid var(--ring, #7A6540); outline-offset: 2px; }
+.ql-motion-toggle[hidden] { display: none !important; }
+
+/* ── Ambient background · A "Lantern drift" (home only; replaces the cut motes) ──
+   One very soft warm light drifting a few % behind the top of the page. Transform + opacity
+   only, 56 s each way, alternate. Held by .motion-paused (Pause control) or .is-held (JS). */
+.ql-ambient{position:absolute;top:0;left:0;right:0;height:min(1600px,170vh);overflow:hidden;pointer-events:none;z-index:0;contain:strict}
+.ql-ambient--lantern::before{content:"";position:absolute;left:-12%;top:-30%;width:min(100vmax,1200px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(246,224,180,.5) 0%,rgba(246,224,180,.26) 42%,rgba(246,224,180,.08) 72%,rgba(246,224,180,0) 100%);
+  opacity:.8;transform:translate3d(0,0,0) scale(1);animation:ql-lantern 56s var(--ease-breathe) infinite alternate;will-change:transform,opacity}
+@keyframes ql-lantern{from{transform:translate3d(0,0,0) scale(1);opacity:.8}to{transform:translate3d(5%,3%,0) scale(1.04);opacity:1}}
+.motion-paused .ql-ambient::before,.ql-ambient.is-held::before{animation-play-state:paused}
+@media (max-width:720px){.ql-ambient--lantern::before{width:150vw;left:-40%;top:-12%}}
+@media print{.ql-ambient{display:none}}
+
+/* ── Section headings rise (h2 only, once; never the h1) ── */
+html.js.motion-ok .ql-rise:not(.is-in) { opacity: 0; transform: translateY(10px); }
+html.js.motion-ok .ql-rise.is-in {
+  transition: opacity 700ms var(--ease-arrive), transform 700ms var(--ease-arrive);
 }
 
-@keyframes ql-ring {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  40% {
-    opacity: 0.55;
-  }
-  70% {
-    opacity: 0;
-    transform: scale(1.08);
-  }
+/* Legacy stagger classes: retired, content paints immediately */
+.ql-reveal { opacity: 1; transform: none; }
+
+/* ── Companion tints (fixed, no clock) ── */
+.ql-companion { border-radius: 6px; padding: 0 0.3em; box-decoration-break: clone; -webkit-box-decoration-break: clone; color: var(--text, #1A1A1A); }
+.ql-companion--light { background: #FBF6EA; }
+.ql-companion--sun { background: #F6EBD3; }
+.ql-companion--moon { background: #EDEFF3; }
+
+/* ── Typing preview ── */
+.typing { width: 100%; max-width: 28em; margin: 26px auto 0; text-align: left; }
+.typing h2 {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-secondary, #57544E); margin: 0 0 12px; text-align: center;
 }
-
-/* ── Staggered arrival (after site loader) ── */
-
-.ql-reveal {
-  opacity: 0;
-  transform: translateY(14px);
+.typing-card { background: var(--background-default, #FFFFFF); border: 1px solid var(--border, #E8E8E5); border-radius: 16px; padding: 16px 18px 10px; }
+.typing-label { margin: 0 0 10px; font-size: 0.82rem; color: var(--text-secondary, #57544E); }
+.typing-stage { display: grid; }
+.typing-stage > .typing-layer { grid-area: 1 / 1; display: flex; flex-direction: column; gap: 10px; }
+/* Ghost copy reserves the final height (CLS 0). It paints at near-zero opacity, not
+   visibility:hidden, so the finished text is measured at first paint and the reply
+   fading in later never becomes a late Largest Contentful Paint. */
+.typing-ghost { opacity: 0.001; pointer-events: none; user-select: none; }
+.typing-entry, .typing-reply { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--text, #1A1A1A); }
+.typing-entry { padding: 2px 0; }
+.typing-reply { background: #F8F1E0; border-radius: 12px; padding: 10px 14px; }
+.typing-reply-name { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-secondary, #57544E); margin-bottom: 2px; }
+.typing-entry-text { border-right: 1px solid transparent; padding-right: 1px; }
+.typing-live.is-typing .typing-entry-text { border-right-color: rgba(26, 26, 26, 0.6); }
+html.js.motion-ok .typing-live:not(.is-started) { visibility: hidden; }
+.typing-live.is-pre-reply .typing-reply { opacity: 0; transform: translateY(4px); }
+.typing-live.is-reply-in .typing-reply { opacity: 1; transform: none; transition: opacity 900ms var(--ease-arrive), transform 900ms var(--ease-arrive); }
+.typing-live.is-instant .typing-reply { transition: none; }
+.typing-control {
+  display: none; margin: 8px 0 0 -10px; min-height: 44px; padding: 0 10px;
+  font: inherit; font-size: 0.85rem; color: var(--accent, #7A6540); background: transparent; border: 0; border-radius: 8px; cursor: pointer;
 }
+html.js.motion-ok .typing-control { display: inline-flex; align-items: center; }
+.typing-control:hover { text-decoration: underline; text-underline-offset: 3px; }
+.typing-control:focus-visible { outline: 2px solid var(--ring, #7A6540); outline-offset: 2px; }
+.ql-sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-html.is-ready .ql-reveal {
-  animation: ql-rise 0.95s var(--ql-ease) forwards;
-  animation-delay: var(--reveal-delay, 0s);
-}
+/* ── Small hover feedback (user-triggered, unchanged in spirit) ── */
+.ql-glow-hover { transition: box-shadow 0.45s var(--ease-arrive), border-color 0.35s ease; }
+.ql-glow-hover:hover { box-shadow: 0 6px 24px rgba(180, 150, 90, 0.12); }
+.site-brand-icon { transition: box-shadow 0.4s ease, transform 0.4s var(--ease-arrive); }
+.site-brand:hover .site-brand-icon { box-shadow: 0 0 0 3px rgba(255, 240, 200, 0.55); transform: scale(1.04); }
+.site-nav-link, .site-subnav-link { position: relative; }
+.store-cta { transition: transform 0.35s var(--ease-arrive), filter 0.35s ease, opacity 0.2s ease; }
+.store-cta:hover { filter: drop-shadow(0 8px 16px rgba(180, 150, 80, 0.18)); }
 
-@keyframes ql-rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Delay helpers */
-.ql-reveal--1 { --reveal-delay: 0.05s; }
-.ql-reveal--2 { --reveal-delay: 0.16s; }
-.ql-reveal--3 { --reveal-delay: 0.28s; }
-.ql-reveal--4 { --reveal-delay: 0.4s; }
-.ql-reveal--5 { --reveal-delay: 0.52s; }
-.ql-reveal--6 { --reveal-delay: 0.64s; }
-
-/* ── Soft interactive glows ── */
-
-.ql-glow-hover {
-  transition:
-    transform 0.35s var(--ql-ease),
-    box-shadow 0.45s var(--ql-ease),
-    border-color 0.35s ease;
-}
-
-.ql-glow-hover:hover {
-  box-shadow: 0 6px 24px rgba(180, 150, 90, 0.12);
-}
-
-/* QR: gentle breathe on the frame */
-.qr-code-container.ql-alive {
-  transition: box-shadow 0.5s ease, border-color 0.5s ease;
-  animation: ql-frame-soft 6s ease-in-out infinite;
-}
-
-@keyframes ql-frame-soft {
-  0%, 100% {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    border-color: var(--border, #E8E8E5);
-  }
-  50% {
-    box-shadow: 0 6px 22px rgba(200, 170, 100, 0.14);
-    border-color: rgba(200, 180, 140, 0.45);
-  }
-}
-
-/* What's new — soft pulse once after load, then still */
-html.is-ready .whats-new-btn.ql-invite {
-  animation: ql-invite 2.8s var(--ql-ease) 1.1s both;
-}
-
-@keyframes ql-invite {
-  0% {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-  40% {
-    box-shadow: 0 0 0 0 rgba(180, 150, 90, 0.22);
-  }
-  55% {
-    box-shadow: 0 0 0 10px rgba(180, 150, 90, 0);
-  }
-  100% {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-}
-
-/* Footer tagline — almost imperceptible breath */
-.site-footer-tagline.ql-breath {
-  animation: ql-text-breath 10s ease-in-out infinite;
-}
-
-@keyframes ql-text-breath {
-  0%, 100% { opacity: 0.75; }
-  50% { opacity: 1; }
-}
-
-/* Header brand icon — tiny warm pulse */
-.site-brand-icon {
-  transition: box-shadow 0.4s ease, transform 0.4s var(--ql-ease);
-}
-
-.site-brand:hover .site-brand-icon {
-  box-shadow: 0 0 0 3px rgba(255, 240, 200, 0.55);
-  transform: scale(1.04);
-}
-
-/* Nav links — soft underline grow */
-.site-nav-link,
-.site-subnav-link {
-  position: relative;
-}
-
-/* Store CTAs: warm lift on hover (transform lives in index.html) */
-.store-cta {
-  transition: transform 0.35s var(--ql-ease), filter 0.35s ease, opacity 0.2s ease;
-}
-
-.store-cta:hover {
-  filter: drop-shadow(0 8px 16px rgba(180, 150, 80, 0.18));
-}
-
-/* ── Reduced motion: slow fade only ── */
-
-@keyframes ql-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+/* ── Reduced motion: nothing moves ── */
 @media (prefers-reduced-motion: reduce) {
-  .ambient-glow,
-  .ambient-mote,
-  .icon-aura::before,
-  .icon-aura::after,
-  .qr-code-container.ql-alive,
-  .whats-new-btn.ql-invite,
-  .site-footer-tagline.ql-breath {
-    animation: none !important;
-  }
+  .ql-ambient::before { animation: none !important; will-change: auto; }
+  .icon-aura::before, .icon-aura[data-ql-glow]::before { animation: none !important; opacity: 0.55; transform: none; }
+  .ql-motion-toggle, html.js .ql-motion-toggle { display: none !important; }
+  .ql-rise, html.js .ql-rise:not(.is-in) { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .typing-live { visibility: visible !important; }
+  .typing-live .typing-reply { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .typing-control, html.js .typing-control { display: none !important; }
+  .typing-entry-text { border-right-color: transparent !important; }
+  .icon-aura .app-icon, .icon-aura img, .store-cta, .site-brand-icon { transition: none; }
+  .icon-aura:hover .app-icon, .icon-aura:hover img, .site-brand:hover .site-brand-icon,
+  .site-social-link:hover, .store-cta:hover, .whats-new-btn:hover { transform: none; }
+}
 
-  .ambient-glow {
-    opacity: 0.55;
-    transform: none;
-  }
-
-  .ambient-mote {
-    display: none;
-  }
-
-  .icon-aura::before {
-    opacity: 0.5;
-  }
-
-  .ql-reveal {
-    opacity: 0;
-    transform: none;
-  }
-
-  html.is-ready .ql-reveal {
-    transform: none;
-    animation: ql-fade 0.9s ease forwards;
-    animation-delay: var(--reveal-delay, 0s);
-  }
-
-  .icon-aura:hover .app-icon,
-  .icon-aura:hover img,
-  .site-brand:hover .site-brand-icon,
-  .site-social-link:hover,
-  .store-cta:hover,
-  .whats-new-btn:hover {
-    transform: none;
-  }
+@media (min-width: 960px) {
+  .typing { grid-column: 1; max-width: none; margin-top: 24px; }
+  .typing h2 { text-align: left; }
 }

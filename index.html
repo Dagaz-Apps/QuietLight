@@ -38,9 +38,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="1024x1024" href="/images/favicon.png" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-  <link rel="stylesheet" href="css/site-nav.css">
-  <link rel="stylesheet" href="css/site-loader.css">
-  <link rel="stylesheet" href="css/site-motion.css">
+  <link rel="stylesheet" href="css/site-nav.css?v=20261029">
+  <link rel="stylesheet" href="css/site-motion.css?v=20261029">
+  <script>(function(d){d.classList.add("js");try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)d.classList.add("motion-ok")}catch(e){}})(document.documentElement);</script>
  
   <title>Quiet Light — A quiet place to write — and be met</title>
  
@@ -1118,37 +1118,44 @@
   </style>
 </head>
 <body class="page-home">
-  <script src="js/site-loader.js"></script>
   <div id="root">
     <main>
-      <!-- Soft light field — decorative only -->
-      <div class="ambient" aria-hidden="true">
-        <div class="ambient-glow ambient-glow--primary"></div>
-        <div class="ambient-glow ambient-glow--secondary"></div>
-        <div class="ambient-glow ambient-glow--tertiary"></div>
-        <span class="ambient-mote" style="--x:18%;--y:62%;--delay:0s;--dur:16s;--drift-x:18px"></span>
-        <span class="ambient-mote" style="--x:72%;--y:28%;--delay:2s;--dur:13s;--drift-x:-14px"></span>
-        <span class="ambient-mote" style="--x:42%;--y:78%;--delay:4.5s;--dur:18s;--drift-x:10px"></span>
-        <span class="ambient-mote" style="--x:85%;--y:55%;--delay:1.2s;--dur:15s;--drift-x:-20px"></span>
-        <span class="ambient-mote" style="--x:28%;--y:22%;--delay:6s;--dur:17s;--drift-x:8px"></span>
-        <span class="ambient-mote" style="--x:58%;--y:48%;--delay:3.5s;--dur:14s;--drift-x:-12px"></span>
-      </div>
-
+      <div class="ql-ambient ql-ambient--lantern" aria-hidden="true"></div>
       <div class="wrapper">
         <div class="content" id="content">
           <section class="hero" aria-label="Quiet Light">
-            <div class="icon-aura ql-reveal ql-reveal--1">
+            <div class="icon-aura" data-ql-glow>
               <img src="images/icon-256.png" alt="Quiet Light App Icon" class="app-icon" width="128" height="128" />
             </div>
-            <h1 class="ql-reveal ql-reveal--2">Quiet Light</h1>
-            <p class="tagline ql-reveal ql-reveal--3">Gentle presence for stillness</p>
-            <p class="lede ql-reveal ql-reveal--3">
+            <h1>Quiet Light</h1>
+            <p class="tagline">Gentle presence for stillness</p>
+            <p class="lede">
               A quiet place to write what's on your mind — and be met, not managed.
             </p>
+            <button class="ql-motion-toggle" type="button" aria-pressed="false">Pause motion</button>
           </section>
 
-          <section class="in-app ql-reveal ql-reveal--4" aria-labelledby="in-app-heading">
-            <h2 id="in-app-heading">In the app</h2>
+          <section class="typing" aria-labelledby="typing-heading">
+            <h2 id="typing-heading" class="ql-rise">Write, and be met</h2>
+            <div class="typing-card">
+              <p class="typing-label">Example — not a real conversation</p>
+              <div class="typing-stage" aria-hidden="true">
+                <div class="typing-layer typing-ghost">
+                  <p class="typing-entry">I don't really know what I'm feeling tonight. Tired, I think, and a little far from everything.</p>
+                  <p class="typing-reply"><span class="typing-reply-name">Quiet Light</span>Tired, and a little far away. That's alright to sit with. You don't need to name it tonight. I'm here if you want to write a little more.</p>
+                </div>
+                <div class="typing-layer typing-live">
+                  <p class="typing-entry"><span class="typing-entry-text">I don't really know what I'm feeling tonight. Tired, I think, and a little far from everything.</span></p>
+                  <p class="typing-reply"><span class="typing-reply-name">Quiet Light</span>Tired, and a little far away. That's alright to sit with. You don't need to name it tonight. I'm here if you want to write a little more.</p>
+                </div>
+              </div>
+              <p class="ql-sr-only">Example entry: I don't really know what I'm feeling tonight. Tired, I think, and a little far from everything. Quiet Light: Tired, and a little far away. That's alright to sit with. You don't need to name it tonight. I'm here if you want to write a little more.</p>
+              <button class="typing-control" type="button">Show full text</button>
+            </div>
+          </section>
+
+          <section class="in-app" aria-labelledby="in-app-heading">
+            <h2 id="in-app-heading" class="ql-rise">In the app</h2>
             <ul>
               <li>Write what's here and be met, not managed</li>
               <li>A Silence sit when you want one, with a gentle return to the page</li>
@@ -1156,22 +1163,22 @@
             </ul>
           </section>
 
-          <section class="plans ql-reveal ql-reveal--4" aria-label="Free and Premium">
+          <section class="plans" aria-label="Free and Premium">
             <div class="plan">
-              <h2>Free</h2>
-              <p>Quiet Light, one conversation</p>
+              <h2 class="ql-rise">Free</h2>
+              <p><span class="ql-companion ql-companion--light">Quiet Light</span>, one conversation</p>
             </div>
             <div class="plan">
-              <h2>Premium</h2>
-              <p>Quiet Sun and Quiet Moon, more conversations, search, Memory Garden, and the weekly letter</p>
+              <h2 class="ql-rise">Premium</h2>
+              <p><span class="ql-companion ql-companion--sun">Quiet Sun</span> and <span class="ql-companion ql-companion--moon">Quiet Moon</span>, more conversations, search, Memory Garden, and the weekly letter</p>
             </div>
           </section>
 
-          <div class="hero-divider ql-reveal ql-reveal--4" aria-hidden="true"></div>
+          <div class="hero-divider" aria-hidden="true"></div>
 
           <section class="download" aria-label="Download">
 
-            <div class="store-buttons ql-reveal ql-reveal--5">
+            <div class="store-buttons">
               <div class="store-ios">
                 <a href="https://apps.apple.com/us/app/quiet-light-illuminations/id6759539902"
                    class="store-cta" target="_blank" rel="noopener noreferrer">
@@ -1206,9 +1213,9 @@
             </div>
           </section>
 
-          <div class="version-row ql-reveal ql-reveal--6">
+          <div class="version-row">
             <p class="version-info">Version 1.4.0</p>
-            <button class="whats-new-btn ql-invite ql-glow-hover" id="whats-new-btn" type="button" aria-expanded="false" aria-controls="whats-new-modal">
+            <button class="whats-new-btn ql-glow-hover" id="whats-new-btn" type="button" aria-expanded="false" aria-controls="whats-new-modal">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2a1 1 0 0 1 .993.883L13 3v1.07a7.002 7.002 0 0 1 4.933 11.292l.74.74a1 1 0 0 1-1.32 1.497l-.094-.083-.74-.74A7.002 7.002 0 0 1 5.07 12H4a1 1 0 0 1-.117-1.993L4 10h1.07A7.002 7.002 0 0 1 12 4.07V3a1 1 0 0 1 1-1zm0 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/>
             </svg>
@@ -1217,7 +1224,7 @@
           </div>
 
           <section class="answers" id="answers" aria-labelledby="answers-heading">
-            <h2 id="answers-heading">Answers</h2>
+            <h2 id="answers-heading" class="ql-rise">Answers</h2>
             <div class="answers-list">
               <details>
                 <summary>What is Quiet Light?</summary>
@@ -1400,6 +1407,7 @@
       modalPanel.addEventListener('click', (e) => e.stopPropagation());
     })();
   </script>
-  <script src="js/site-nav.js" defer></script>
+  <script src="js/site-nav.js?v=20261029" defer></script>
+  <script src="js/site-motion.js?v=20261029" defer></script>
 </body>
 </html>

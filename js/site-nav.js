@@ -239,7 +239,7 @@
   var year = new Date().getFullYear();
   footer.innerHTML =
     '<p class="site-footer-disclaimer">Quiet Light is not therapy, not a medical device, and not a substitute for professional care. If things feel heavy, help is always one tap away.</p>' +
-    '<p class="site-footer-tagline ql-breath">Stillness is already complete.</p>' +
+    '<p class="site-footer-tagline">Stillness is already complete.</p>' +
     '<nav class="site-footer-legal" aria-label="Legal">' +
     '<a href="privacy.html">Privacy</a>' +
     '<span aria-hidden="true">·</span>' +
