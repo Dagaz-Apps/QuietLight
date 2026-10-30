@@ -2,20 +2,20 @@
   var SUPPORT_EMAIL = "support@quietlight.app";
 
   var mainNav = [
-    { href: "index.html", label: "Home" },
-    { href: "about.html", label: "About" },
-    { href: "changelog.html", label: "Updates" },
+    { href: "/", label: "Home" },
+    { href: "/about/", label: "About" },
+    { href: "/changelog/", label: "Updates" },
   ];
 
-  // Pause is intentionally not listed — a quiet easter egg at pause.html
+  // Pause is intentionally not listed — a quiet easter egg at /pause/
   // (noindex; discoverable via direct URL, README, and the 404 invitation).
   var subNav = [
-    { href: "privacy.html", label: "Privacy" },
-    { href: "terms.html", label: "Terms" },
-    { href: "disclaimer.html", label: "Disclaimer" },
-    { href: "safety.html", label: "Safety" },
-    { href: "support.html", label: "Support" },
-    { href: "delete-account.html", label: "Delete account" },
+    { href: "/privacy/", label: "Privacy" },
+    { href: "/terms/", label: "Terms" },
+    { href: "/disclaimer/", label: "Disclaimer" },
+    { href: "/safety/", label: "Safety" },
+    { href: "/support/", label: "Support" },
+    { href: "/delete-account/", label: "Delete account" },
   ];
 
   var socialSvg = {
@@ -26,13 +26,35 @@
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52V6.84a4.84 4.84 0 0 1-1-.15z"/></svg>',
   };
 
+  function normalizePath(path) {
+    path = (path || "/").split("?")[0].split("#")[0];
+    if (path === "/index.html" || path === "" || path === "/") return "/";
+    path = path.replace(/\/index\.html$/i, "/");
+    path = path.replace(/\.html$/i, "/");
+    if (path.charAt(path.length - 1) !== "/") path += "/";
+    return path;
+  }
+
+  function hideIndexHtml() {
+    var path = window.location.pathname;
+    if (!/index\.html$/i.test(path)) return;
+    if (!window.history || !window.history.replaceState) return;
+    var pretty = path.replace(/\/index\.html$/i, "/");
+    if (pretty === "") pretty = "/";
+    window.history.replaceState(
+      null,
+      "",
+      pretty + window.location.search + window.location.hash
+    );
+  }
+  hideIndexHtml();
+
   function currentPage() {
-    var p = window.location.pathname.split("/").pop();
-    return !p ? "index.html" : p;
+    return normalizePath(window.location.pathname);
   }
 
   function isActive(href) {
-    return currentPage() === href;
+    return currentPage() === normalizePath(href);
   }
 
   function buildNav(links, linkClass) {
@@ -175,8 +197,8 @@
   header.innerHTML =
     '<div class="site-header-main">' +
     '<div class="site-header-inner">' +
-    '<a href="index.html" class="site-brand" aria-label="Quiet Light home">' +
-    '<img src="images/icon-256.png" alt="" width="32" height="32" class="site-brand-icon" />' +
+    '<a href="/" class="site-brand" aria-label="Quiet Light home">' +
+    '<img src="/images/icon-256.png" alt="" width="32" height="32" class="site-brand-icon" />' +
     "<span>Quiet Light</span></a>" +
     '<nav class="site-nav" aria-label="Main">' +
     buildNav(mainNav, "site-nav-link") +
@@ -241,11 +263,11 @@
     '<p class="site-footer-disclaimer">Quiet Light is not therapy, not a medical device, and not a substitute for professional care. If things feel heavy, help is always one tap away.</p>' +
     '<p class="site-footer-tagline">Stillness is already complete.</p>' +
     '<nav class="site-footer-legal" aria-label="Legal">' +
-    '<a href="privacy.html">Privacy</a>' +
+    '<a href="/privacy/">Privacy</a>' +
     '<span aria-hidden="true">·</span>' +
-    '<a href="terms.html">Terms</a>' +
+    '<a href="/terms/">Terms</a>' +
     '<span aria-hidden="true">·</span>' +
-    '<a href="disclaimer.html">Disclaimer</a>' +
+    '<a href="/disclaimer/">Disclaimer</a>' +
     '<span aria-hidden="true">·</span>' +
     '<span class="site-footer-copy">© ' +
     year +

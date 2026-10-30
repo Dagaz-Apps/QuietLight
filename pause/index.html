@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="A quiet place to sit for a moment." />
+  <meta name="theme-color" content="#FAFAF7" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/css/site-nav.css?v=20261029">
+  <link rel="stylesheet" href="/css/site-motion.css?v=20261029">
+  <title>Pause – Quiet Light</title>
+  <style>
+    :root {
+      --text: #1A1A1A;
+      --text-secondary: #57544E;
+      --background-root: #FAFAF7;
+      --background-secondary: #F5F5F0;
+      --border: #E8E8E5;
+      --glow: rgba(250, 248, 240, 0.9);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--background-root);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+      opacity: 0;
+      animation: breathe 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.3; transform: scale(0.92); }
+      50% { opacity: 0.85; transform: scale(1.08); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      opacity: 0;
+      animation: fadeIn 2.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .label {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .question {
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--text);
+      margin: 0 0 40px;
+      line-height: 1.55;
+    }
+
+    .invitation {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin: 0 0 48px;
+      font-style: italic;
+    }
+
+    .timer {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      opacity: 0.6;
+      margin-top: clamp(20px, 5vh, 40px);
+      min-height: 1.4em;
+    }
+
+    .return {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.3s ease, border-color 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 1s ease 12s forwards;
+    }
+
+    .return:hover {
+      color: var(--text);
+      border-bottom-color: var(--border);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glow { animation: none; opacity: 0.5; }
+      .content, .return { animation: none; opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="glow" aria-hidden="true"></div>
+
+    <div class="content">
+      <p class="label">A quiet pause</p>
+      <p class="question" id="question">What is here, right now, beneath the noise?</p>
+      <p class="invitation">No answer is required. You may simply notice.</p>
+      <p class="timer" id="timer" aria-live="polite"></p>
+      <a href="/" class="return" id="return-link">Return when you're ready</a>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script>
+    const questions = [
+      "What is here, right now, beneath the noise?",
+      "What wants a little more room to breathe?",
+      "What would it feel like to set this down, just for a moment?",
+      "What is already complete, without your effort?",
+      "What is quietly asking to be heard?"
+    ];
+
+    const dayIndex = new Date().getDate() % questions.length;
+    document.getElementById("question").textContent = questions[dayIndex];
+
+    const timerEl = document.getElementById("timer");
+    const returnLink = document.getElementById("return-link");
+    let seconds = 0;
+    const interval = setInterval(() => {
+      seconds++;
+      if (seconds < 8) return;
+      if (seconds < 20) {
+        timerEl.textContent = "Still here. Still enough.";
+      } else if (seconds < 45) {
+        timerEl.textContent = "Nothing to fix. Nothing to finish.";
+      } else {
+        timerEl.textContent = "You may return whenever you wish.";
+        returnLink.style.opacity = "1";
+        clearInterval(interval);
+      }
+    }, 1000);
+  </script>
+  <script src="/js/site-nav.js?v=20261030" defer></script>
+</body>
+</html>

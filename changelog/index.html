@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Quiet Light release notes — Memory Garden, Threads of Light, daily reflections, and every update from the App Store." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#FAFAF7" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Changelog – Quiet Light" />
+  <meta property="og:description" content="Release notes for Quiet Light — what’s new in each version." />
+  <meta property="og:url" content="https://quietlight.app/changelog/" />
+  <meta property="og:image" content="https://quietlight.app/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Quiet Light" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@QuietLightApp" />
+  <meta name="twitter:title" content="Changelog – Quiet Light" />
+  <meta name="twitter:description" content="Release notes for Quiet Light — what’s new in each version." />
+  <meta name="twitter:image" content="https://quietlight.app/images/og-image.png" />
+  <link rel="canonical" href="https://quietlight.app/changelog/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/css/site-nav.css?v=20261029">
+  <link rel="stylesheet" href="/css/site-motion.css?v=20261029">
+  <title>Changelog – Quiet Light</title>
+  <style>
+    :root {
+      --text: #1A1A1A;
+      --text-secondary: #57544E;
+      --background-root: #FAFAF7;
+      --background-default: #FFFFFF;
+      --background-secondary: #F5F5F0;
+      --border: #E8E8E5;
+      --patch-accent: #B8B8B2;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--background-root);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      padding: 24px 20px 48px;
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin: 0 0 40px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .badge-latest {
+      background: var(--text);
+      color: var(--background-root);
+    }
+
+    .badge-release {
+      background: var(--background-secondary);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    /* ── Latest update (compact, top) ── */
+    .latest {
+      padding: 22px 24px;
+      background: var(--background-default);
+      border: 1px solid var(--text);
+      border-radius: 14px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .latest-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      margin-bottom: 14px;
+    }
+
+    .latest-version {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .latest-date {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-left: auto;
+    }
+
+    .compact-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .compact-list li {
+      padding: 8px 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    .compact-list li:first-child { border-top: none; padding-top: 0; }
+    .compact-list strong { color: var(--text); font-weight: 600; }
+
+    .parent-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .parent-link:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* ── Release cards ── */
+    .release {
+      padding: 24px 24px 20px;
+      background: var(--background-default);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .release-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px 14px;
+      margin-bottom: 6px;
+    }
+
+    .release-version {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .release-name {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin: 0 0 14px;
+      font-style: italic;
+    }
+
+    .release-date {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-left: auto;
+    }
+
+    .release-intro {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin: 0 0 16px;
+      line-height: 1.65;
+    }
+
+    .change-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .change-list > li {
+      position: relative;
+      padding: 12px 0 12px 22px;
+      border-top: 1px solid var(--border);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .change-list > li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-secondary);
+    }
+
+    .change-list strong {
+      display: block;
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+
+    .patches-trail {
+      margin: 16px 0 0;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.85rem;
+      color: var(--patch-accent);
+    }
+
+    .patches-trail a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .patches-trail a:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* ── Older releases (collapsed) ── */
+    .older details {
+      background: var(--background-default);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .older summary {
+      padding: 18px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text-secondary);
+    }
+
+    .older summary::-webkit-details-marker { display: none; }
+
+    .older summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--patch-accent);
+    }
+
+    .older details[open] summary::after { content: "−"; }
+
+    .older .release-inner {
+      padding: 0 24px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .older .release-name { margin-top: 16px; }
+
+    @media (max-width: 600px) {
+      .latest-date, .release-date { margin-left: 0; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1 class="page-title">Changelog</h1>
+    <p class="page-subtitle">Newest first — releases and the quiet updates that follow.</p>
+
+    <div class="timeline">
+      <!-- Latest: 1.4.0 -->
+      <article class="latest" id="v1-4-0">
+        <div class="latest-header">
+          <h2 class="latest-version">1.4.0</h2>
+          <span class="badge badge-latest">Latest</span>
+          <span class="latest-date">October 23, 2026</span>
+        </div>
+        <p class="release-name" style="margin-top:0;margin-bottom:10px;">Premium, Memory Garden, Read aloud &amp; easier to read</p>
+        <ul class="compact-list">
+          <li><strong>Premium, plainly</strong> — up to 30 reflections a day, and a plain list of what's included, with one labelled example of the weekly letter and Garden phrases</li>
+          <li><strong>Memory Garden</strong> — phrases gather when a conversation ends; what you kept stays where you left it</li>
+          <li><strong>Read aloud</strong> — hear replies in your phone's own voice, if you'd like, even with your iPhone on silent; a calm note shows if a voice can't play</li>
+          <li><strong>A gentler end to Silence</strong> — when the timer ends, the page returns gently, with VoiceOver and TalkBack too</li>
+          <li><strong>Help, one tap away</strong> — if things feel heavy, help is always one tap away, even when today's reflections are complete</li>
+          <li><strong>Easier to read</strong> — text follows your phone's size; High Contrast covers the whole app; small text is clearer and screen readers get better headings and announcements</li>
+        </ul>
+      </article>
+
+      <!-- Update: 1.3.6 -->
+      <article class="release" id="v1-3-6">
+        <div class="release-header">
+          <h2 class="release-version">1.3.6</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">October 14, 2026</span>
+        </div>
+        <p class="release-name">Silence, unsent writing &amp; companion notices</p>
+        <ul class="change-list">
+          <li>
+            <strong>Silence</strong>
+            Sit 3, 5, 10, 15, or 20 minutes, then write.
+          </li>
+          <li>
+            <strong>What you wrote stays</strong>
+            If a send cannot go through, the words remain in the composer.
+          </li>
+          <li>
+            <strong>Companion notices</strong>
+            Quiet Light is an AI companion; companion chatbots may not be suitable for some minors.
+          </li>
+          <li>
+            <strong>Terms &amp; Privacy 1.3.0</strong>
+            Returning accounts will be asked to review them; crisis protocol at quietlight.app/safety.html.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of 1.3 — Companion depth
+        </p>
+      </article>
+
+      <!-- Update: 1.3.5 -->
+      <article class="release" id="v1-3-5">
+        <div class="release-header">
+          <h2 class="release-version">1.3.5</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">October 10, 2026</span>
+        </div>
+        <p class="release-name">Search, stay signed in &amp; full replies</p>
+        <ul class="change-list">
+          <li>
+            <strong>Search</strong>
+            Past Reflections matches the words you wrote, plus titles and remembered themes.
+          </li>
+          <li>
+            <strong>Stay signed in</strong>
+            On the order of a year; returning refreshes that time.
+          </li>
+          <li>
+            <strong>Full replies</strong>
+            Companion replies paint in full; <em>italic</em> and <strong>bold</strong>.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of 1.3 — Companion depth
+        </p>
+      </article>
+
+      <!-- Update: 1.3.4 -->
+      <article class="release" id="v1-3-4">
+        <div class="release-header">
+          <h2 class="release-version">1.3.4</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">October 4, 2026</span>
+        </div>
+        <p class="release-name">Start Fresh, Release &amp; crisis lines</p>
+        <ul class="change-list">
+          <li>
+            <strong>Start Fresh</strong>
+            In Settings, start over on this reflection only.
+          </li>
+          <li>
+            <strong>Release</strong>
+            Let these words go; Premium rebuilds Memory Garden without that write.
+          </li>
+          <li>
+            <strong>Crisis lines</strong>
+            988, 741741, and IASP in companion replies are tappable.
+          </li>
+          <li>
+            <strong>Terms &amp; Privacy 1.2.0</strong>
+            Returning accounts will be asked to review them.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of 1.3 — Companion depth
+        </p>
+      </article>
+
+      <!-- Update: 1.3.3 -->
+      <article class="release" id="v1-3-3">
+        <div class="release-header">
+          <h2 class="release-version">1.3.3</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">September 20, 2026</span>
+        </div>
+        <p class="release-name">7-day trial, screen info &amp; quieter header</p>
+        <ul class="change-list">
+          <li>
+            <strong>Premium</strong>
+            A 7-day free trial if the store offers it for your account, then the usual monthly price.
+          </li>
+          <li>
+            <strong>Info</strong>
+            A small mark on Memory Garden, Saved Reflections, Past Reflections, Choose Presence, and Premium.
+          </li>
+          <li>
+            <strong>Confirm email</strong>
+            No longer leaves you on that screen; Appearance in Accessibility is easier to read.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of 1.3 — Companion depth
+        </p>
+      </article>
+
+      <!-- Update: 1.3.2 -->
+      <article class="release" id="v1-3-2">
+        <div class="release-header">
+          <h2 class="release-version">1.3.2</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">September 10, 2026</span>
+        </div>
+        <p class="release-name">Guiding presence, six reflections a day &amp; confirm email</p>
+        <ul class="change-list">
+          <li>
+            <strong>Companions</strong>
+            Walk a reflection with you: one named teaching when they are truly guiding, and the next inch of seeing.
+          </li>
+          <li>
+            <strong>Daily room</strong>
+            A free account has six reflections each day; guests still have three; Premium remains twelve.
+          </li>
+          <li>
+            <strong>Confirm email</strong>
+            New accounts confirm their email; existing accounts keep working as they do, and confirm that address first if they go to Premium.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of 1.3 — Companion depth
+        </p>
+      </article>
+
+      <!-- Update: 1.3.1 -->
+      <article class="release" id="v1-3-1">
+        <div class="release-header">
+          <h2 class="release-version">1.3.1</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">September 6, 2026</span>
+        </div>
+        <p class="release-name">Current iOS and Android, a clearer drawer &amp; Terms 1.1.0</p>
+        <ul class="change-list">
+          <li>
+            <strong>The drawer</strong>
+            Guests can create a free account or sign in from the journal; free accounts can see Premium without opening Settings.
+          </li>
+          <li>
+            <strong>Terms &amp; Privacy 1.1.0</strong>
+            In-app copy matches quietlight.app; returning users are asked to review them.
+          </li>
+          <li>
+            <strong>Current platforms</strong>
+            Built for the systems you are on now, including Android 15 edge-to-edge.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of 1.3 — Companion depth
+        </p>
+      </article>
+
+      <!-- Update: 1.3.0 -->
+      <article class="release" id="v1-3-0">
+        <div class="release-header">
+          <h2 class="release-version">1.3.0</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">September 5, 2026</span>
+        </div>
+        <p class="release-name">Companion depth, visiting memory &amp; quieter journal</p>
+        <ul class="change-list">
+          <li>
+            <strong>Companions</strong>
+            Light, Sun, and Moon each hold a more distinct quality of presence.
+          </li>
+          <li>
+            <strong>Visiting memory (Premium)</strong>
+            A few invitational phrases return in the reflection; Memory Garden lets you begin from a phrase or let one go.
+          </li>
+          <li>
+            <strong>Today’s Light</strong>
+            On the empty page; long-press to share as a Light, Dark, or Warm card.
+          </li>
+          <li>
+            <strong>The journal</strong>
+            New Reflection stays empty after you leave; past threads keep their companion; landscape is welcome.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of 1.3 — Companion depth
+        </p>
+      </article>
+
+      <!-- Update: 1.2.8 -->
+      <article class="release" id="v1-2-8">
+        <div class="release-header">
+          <h2 class="release-version">1.2.8</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">August 27, 2026</span>
+        </div>
+        <p class="release-name">Local-day rhythm, deep-work room &amp; clearer titles</p>
+        <ul class="change-list">
+          <li>
+            <strong>Your day</strong>
+            Daily reflections follow your local calendar; evenings stay tonight, and travel or VPN hops cannot refill the day.
+          </li>
+          <li>
+            <strong>Room for deep work (Premium)</strong>
+            At today’s cap, genuine deep work may open +3 reflections (up to 15), marked with a quiet moment.
+          </li>
+          <li>
+            <strong>Past Reflections</strong>
+            Clean titles beside the companion color; no stray markdown #.
+          </li>
+          <li>
+            <strong>Companion emphasis</strong>
+            Words wrapped in *asterisks* now appear in bold.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-2">1.2 — Memory &amp; continuity</a>
+        </p>
+      </article>
+
+      <!-- Update: 1.2.7 -->
+      <article class="release" id="v1-2-7">
+        <div class="release-header">
+          <h2 class="release-version">1.2.7</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">August 8, 2026</span>
+        </div>
+        <p class="release-name">Android launch, web data deletion &amp; Premium reliability</p>
+        <ul class="change-list">
+          <li>
+            <strong>Android</strong>
+            Now on <a href="https://play.google.com/store/apps/details?id=com.dagazapps.quietlight" target="_blank" rel="noopener noreferrer">Google Play</a>; the same companion experience on iOS and Android.
+          </li>
+          <li>
+            <strong>Web data deletion</strong>
+            Public page at quietlight.app/delete-account.html, linked from the app.
+          </li>
+          <li>
+            <strong>Privacy 1.0.1</strong>
+            Updated policy mentions the web deletion path; returning users re-accept when needed.
+          </li>
+          <li>
+            <strong>Premium reliability</strong>
+            Store access revoked when RevenueCat reports free; reviewer accounts protected.
+          </li>
+          <li>
+            <strong>Platform awareness</strong>
+            Signup and last-seen platform (iOS / Android / web).
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-2">1.2 — Memory &amp; continuity</a>
+        </p>
+      </article>
+
+      <!-- Update: 1.2.6 -->
+      <article class="release" id="v1-2-6">
+        <div class="release-header">
+          <h2 class="release-version">1.2.6</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">August 1, 2026</span>
+        </div>
+        <p class="release-name">Account reliability, clearer Premium &amp; wiser guidance</p>
+        <ul class="change-list">
+          <li>
+            <strong>Saved reflections</strong>
+            Keepsakes stay with the correct account when more than one person uses the same device.
+          </li>
+          <li>
+            <strong>Premium messaging</strong>
+            Clearer feedback if a store purchase doesn’t unlock access yet.
+          </li>
+          <li>
+            <strong>Premium reliability</strong>
+            More consistent Premium UI after subscribe and restore.
+          </li>
+          <li>
+            <strong>Premium screen</strong>
+            Subscribe first, then swipe through benefits.
+          </li>
+          <li>
+            <strong>Ancient knowledge while guiding</strong>
+            Companions try for one named teaching when truly guiding a reflection.
+          </li>
+          <li>
+            <strong>Reflection titles</strong>
+            Past Reflections names a conversation from what you shared.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-2">1.2 — Memory &amp; continuity</a>
+        </p>
+      </article>
+
+      <!-- Update: 1.2.5 -->
+      <article class="release" id="v1-2-5">
+        <div class="release-header">
+          <h2 class="release-version">1.2.5</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">July 26, 2026</span>
+        </div>
+        <p class="release-name">Reliability for account email, Premium, and reflections</p>
+        <ul class="change-list">
+          <li>
+            <strong>Account email</strong>
+            More reliable password-reset and account messages.
+          </li>
+          <li>
+            <strong>Premium</strong>
+            Smoother subscribe and restore experience.
+          </li>
+          <li>
+            <strong>Stability</strong>
+            Reliability improvements for everyday reflections.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-2">1.2 — Memory &amp; continuity</a>
+        </p>
+      </article>
+
+      <!-- Update: 1.2.4 -->
+      <article class="release" id="v1-2-4">
+        <div class="release-header">
+          <h2 class="release-version">1.2.4</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">July 24, 2026</span>
+        </div>
+        <p class="release-name">Snappier drawer &amp; accessibility</p>
+        <ul class="change-list">
+          <li>
+            <strong>Journal drawer</strong>
+            Opens and closes more quickly, without the long spring bounce; swipe to open and swipe to close.
+          </li>
+          <li>
+            <strong>Reduce Motion</strong>
+            Applies to the drawer and primary press animations.
+          </li>
+          <li>
+            <strong>App-specific accessibility</strong>
+            Starts from your device defaults; changes in Quiet Light stay for the app and are not overwritten by system toggles.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-2">1.2 — Memory &amp; continuity</a>
+        </p>
+      </article>
+
+      <!-- Update: 1.2.3 -->
+      <article class="release" id="v1-2-3">
+        <div class="release-header">
+          <h2 class="release-version">1.2.3</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">July 21, 2026</span>
+        </div>
+        <p class="release-name">Journal drawer &amp; reflection flow</p>
+        <ul class="change-list">
+          <li>
+            <strong>Journal drawer</strong>
+            Side menu from the reflection screen for New Reflection, Choose Companion, Saved Reflections, Memory Garden, Settings, and recent past reflections.
+          </li>
+          <li>
+            <strong>Cleaner new reflections</strong>
+            Starting fresh or switching companions no longer leaves empty entries.
+          </li>
+          <li>
+            <strong>Past Reflections</strong>
+            Calmer list naming, empty states, and spacing.
+          </li>
+          <li>
+            <strong>Settings polish</strong>
+            Clearer layout for account, subscription, and practice preferences.
+          </li>
+          <li>
+            <strong>Companion presence</strong>
+            Refined typing indicator (respects Reduce Motion when enabled).
+          </li>
+          <li>
+            <strong>Language</strong>
+            More of the app speaks in reflections rather than conversations.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-2">1.2 — Memory &amp; continuity</a>
+        </p>
+      </article>
+
+      <!-- Update: 1.2.2 -->
+      <article class="release" id="v1-2-2">
+        <div class="release-header">
+          <h2 class="release-version">1.2.2</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">July 18, 2026</span>
+        </div>
+        <p class="release-name">Honest free &amp; premium limits</p>
+        <ul class="change-list">
+          <li>
+            <strong>Clear free rhythm</strong>
+            Free and guest still have three reflections each day, said plainly.
+          </li>
+          <li>
+            <strong>Honest Premium</strong>
+            Deeper companions, memory, and a more generous daily rhythm (not unlimited).
+          </li>
+          <li>
+            <strong>Aligned messages</strong>
+            Subscription screen, daily-limit prompts, and in-app copy agree on what each tier offers.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-2">1.2 — Memory &amp; continuity</a>
+        </p>
+      </article>
+
+      <!-- Update: 1.2.1 -->
+      <article class="release" id="v1-2-1">
+        <div class="release-header">
+          <h2 class="release-version">1.2.1</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">July 14, 2026</span>
+        </div>
+        <p class="release-name">Persona gate &amp; conversation list</p>
+        <ul class="change-list">
+          <li>
+            <strong>Paid persona stays selected</strong>
+            Quiet Moon / Quiet Sun no longer reset to Quiet Light after a cold start.
+          </li>
+          <li>
+            <strong>New conversations appear right away</strong>
+            Creating a reflection adds it to your list immediately.
+          </li>
+          <li>
+            <strong>Conversation list refreshes on return</strong>
+            Recent threads stay in view when you come back.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-2">1.2 — Memory &amp; continuity</a>
+        </p>
+      </article>
+
+      <!-- Release: 1.2 -->
+      <article class="release" id="v1-2">
+        <div class="release-header">
+          <h2 class="release-version">1.2</h2>
+          <span class="badge badge-release">Release</span>
+          <span class="release-date">July 11, 2026</span>
+        </div>
+        <p class="release-name">Memory &amp; continuity</p>
+        <p class="release-intro">
+          A quieter kind of continuity — companions that hold themes lightly, a weekly letter woven from what arose, and a library that follows you.
+        </p>
+        <ul class="change-list">
+          <li>
+            <strong>Memory Garden</strong>
+            Browse themes your companions remember; gently release a memory when you're ready.
+          </li>
+          <li>
+            <strong>Threads of Light</strong>
+            A weekly, AI-woven letter from the themes in your reflections.
+          </li>
+          <li>
+            <strong>Conversation archive &amp; search</strong>
+            Search by title and themes; archive threads; filter by companion.
+          </li>
+          <li>
+            <strong>Cloud-synced saved reflections</strong>
+            Your keepsake library across devices.
+          </li>
+          <li>
+            <strong>Free-tier polish</strong>
+            Search &amp; sort saved reflections, share card styles, reminder opens today's reflection, same-day continuity.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Updates since: <a href="#v1-2-8">1.2.8</a>, <a href="#v1-2-7">1.2.7</a>, <a href="#v1-2-6">1.2.6</a>, <a href="#v1-2-5">1.2.5</a>, <a href="#v1-2-4">1.2.4</a>, <a href="#v1-2-3">1.2.3</a>, <a href="#v1-2-2">1.2.2</a>, <a href="#v1-2-1">1.2.1</a>
+        </p>
+      </article>
+
+      <!-- Release: 1.1.1 -->
+      <article class="release" id="v1-1-1">
+        <div class="release-header">
+          <h2 class="release-version">1.1.1</h2>
+          <span class="badge badge-release">Update</span>
+          <span class="release-date">June 25, 2026</span>
+        </div>
+        <p class="release-name">Saved reflections &amp; share cards</p>
+        <ul class="change-list">
+          <li>
+            <strong>Saved reflections</strong>
+            Save, browse, and revisit meaningful moments.
+          </li>
+          <li>
+            <strong>Shareable reflection cards</strong>
+            Export reflections as quiet, on-brand images.
+          </li>
+          <li>
+            <strong>Updated About screen</strong>
+            Invitation-focused copy; Quiet Sun &amp; Quiet Moon names.
+          </li>
+          <li>
+            <strong>Settings &amp; stability</strong>
+            Expanded options, smoother navigation, performance polish.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Part of <a href="#v1-1">1.1 — Reflection rhythm</a>
+        </p>
+      </article>
+
+      <!-- Release: 1.1 -->
+      <article class="release" id="v1-1">
+        <div class="release-header">
+          <h2 class="release-version">1.1</h2>
+          <span class="badge badge-release">Release</span>
+          <span class="release-date">June 18, 2026</span>
+        </div>
+        <p class="release-name">Reflection rhythm</p>
+        <p class="release-intro">
+          A few quiet additions to help reflection fit gently into your day — without pressure or prescribed outcomes.
+        </p>
+        <ul class="change-list">
+          <li>
+            <strong>Daily reflections</strong>
+            Three thoughtfully spaced reflections per day, each with its own prompt and presence.
+          </li>
+          <li>
+            <strong>Daily reminders</strong>
+            Set a gentle nudge to pause and reflect at a time that suits you.
+          </li>
+          <li>
+            <strong>Calm meter</strong>
+            See your reflections for the day at a glance, with a soft cue when it's a good moment to pause.
+          </li>
+          <li>
+            <strong>A kinder daily rhythm</strong>
+            When you've reflected enough for one day, you're met with a calm note that rest is part of the practice.
+          </li>
+        </ul>
+        <p class="patches-trail">
+          Updates since: <a href="#v1-1-1">1.1.1</a>
+        </p>
+      </article>
+
+      <!-- Older: 1.0 collapsed -->
+      <div class="older">
+        <details>
+          <summary>1.0 — First light · January 2026</summary>
+          <div class="release-inner">
+            <p class="release-name">First light</p>
+            <p class="release-intro">
+              Quiet Light arrives on the App Store — a contemplative companion for symbolic reflection and spacious presence.
+            </p>
+            <ul class="change-list">
+              <li>
+                <strong>Three presences</strong>
+                Quiet Light, Quiet Sun, and Quiet Moon — each offering a distinct quality of stillness.
+              </li>
+              <li>
+                <strong>Gentle companionship</strong>
+                Warm reflection without pressure, prescriptions, or verdicts.
+              </li>
+              <li>
+                <strong>Free tier</strong>
+                Three reflections of the day, always available and always complete.
+              </li>
+              <li>
+                <strong>Premium</strong>
+                Deeper companionship, gentle continuity, and richer responses across all three presences.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+  <script src="/js/site-nav.js?v=20261030" defer></script>
+</body>
+</html>

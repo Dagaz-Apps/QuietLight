@@ -20,7 +20,7 @@
   &nbsp;·&nbsp;
   <a href="https://play.google.com/store/apps/details?id=com.dagazapps.quietlight">Google Play</a>
   &nbsp;·&nbsp;
-  <a href="about.html">About</a>
+  <a href="about/">About</a>
 </p>
 
 ---
@@ -39,26 +39,29 @@ Each offers a distinct quality of stillness. The meaning, and the choosing, rema
 
 Static landing page for [quietlight.app](https://quietlight.app) — hosted on GitHub Pages.
 
-| Page | Purpose |
-|------|---------|
-| [`index.html`](index.html) | Home, download links, what's new |
-| [`about.html`](about.html) | What Quiet Light is — and is not |
-| [`privacy.html`](privacy.html) | Privacy policy |
-| [`terms.html`](terms.html) | Terms of service |
-| [`safety.html`](safety.html) | Public crisis protocol |
-| [`delete-account.html`](delete-account.html) | Public account/data deletion request (Google Play) |
-| [`support.html`](support.html) | Support form (honeypot + posts to dagazapps.com/api/support) |
-| [`pause.html`](pause.html) | A quiet place to sit for a moment (`noindex`) |
-| [`changelog.html`](changelog.html) | Updates — version history |
-| [`ig/`](ig/index.html), [`tt/`](tt/index.html), [`threads/`](threads/index.html), [`x/`](x/index.html) | Social short links (`noindex`) → home with UTM |
-| [`robots.txt`](robots.txt) | Crawl rules + sitemap pointer |
-| [`sitemap.xml`](sitemap.xml) | Indexable URLs for Search Console |
+Public URLs are directory indexes (`/about/`, `/privacy/`, …). Root `*.html` files are redirect stubs so old app and legal links keep working.
+
+| Page | Public URL | Purpose |
+|------|------------|---------|
+| [`index.html`](index.html) | `/` | Home, download links, what's new |
+| [`about/`](about/index.html) | `/about/` | What Quiet Light is — and is not |
+| [`privacy/`](privacy/index.html) | `/privacy/` | Privacy policy |
+| [`terms/`](terms/index.html) | `/terms/` | Terms of service |
+| [`safety/`](safety/index.html) | `/safety/` | Public crisis protocol |
+| [`delete-account/`](delete-account/index.html) | `/delete-account/` | Public account/data deletion request (Google Play) |
+| [`support/`](support/index.html) | `/support/` | Support form (honeypot + posts to dagazapps.com/api/support) |
+| [`pause/`](pause/index.html) | `/pause/` | A quiet place to sit for a moment (`noindex`) |
+| [`changelog/`](changelog/index.html) | `/changelog/` | Updates — version history |
+| [`ig/`](ig/index.html), [`tt/`](tt/index.html), [`threads/`](threads/index.html), [`x/`](x/index.html) | `/ig` `/tt` `/threads` `/x` | Social short links (`noindex`) → home with UTM |
+| [`robots.txt`](robots.txt) | | Crawl rules + sitemap pointer |
+| [`sitemap.xml`](sitemap.xml) | | Indexable URLs for Search Console |
 
 App source lives separately at [quiet-light-illuminations](https://github.com/ur-creed/quiet-light-illuminations).
 
 ### SEO notes
 
 - **Canonical host:** `https://quietlight.app` (apex). `www` should 301 → apex (GitHub Pages).
+- **Pretty URLs:** `/about/`, `/privacy/`, … from `{slug}/index.html`. `/index.html` is hidden with `history.replaceState`. Old `{slug}.html` paths redirect.
 - **Platforms:** iOS (App Store) and Android (Google Play) — **1.4.0**.
 - **Structured data:** Organization + WebSite + SoftwareApplication (iOS and Android) on the homepage. No fabricated ratings.
 - **Share image:** `images/og-image.png` (1200×630). Favicon: `favicon-32.png`; in-page icon: `icon-256.png`.
@@ -91,7 +94,7 @@ App source lives separately at [quiet-light-illuminations](https://github.com/ur
 | **1.1** | Daily reflections, reminders, calm meter, kinder rhythm |
 | **1.0** | Initial App Store release — three presences, free & premium |
 
-[Full changelog →](changelog.html) · [CHANGELOG.md](CHANGELOG.md)
+[Full changelog →](changelog/) · [CHANGELOG.md](CHANGELOG.md)
 
 ### Site version policy
 
@@ -113,7 +116,7 @@ Just a quiet companion — offering light, a gentle question, or a resonant pers
 ---
 
 <p align="center">
-  <sub>Need a pause? <a href="https://quietlight.app/pause.html">Sit here for a moment →</a></sub>
+  <sub>Need a pause? <a href="https://quietlight.app/pause/">Sit here for a moment →</a></sub>
 </p>
 
 <p align="center">

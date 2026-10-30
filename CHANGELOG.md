@@ -1,6 +1,6 @@
 # Changelog
 
-Newest first. [Full history on the site →](https://quietlight.app/changelog.html)
+Newest first. [Full history on the site →](https://quietlight.app/changelog/)
 
 ## 1.4.0 · Latest · October 23, 2026
 
