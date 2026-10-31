@@ -2,7 +2,17 @@
 
 Newest first. [Full history on the site →](https://quietlight.app/changelog/)
 
-## 1.4.0 · Latest · October 23, 2026
+## 1.4.1 · Latest · October 31, 2026
+
+**A monthly rhythm, live Privacy and Terms & a lantern at launch**
+
+- **A monthly rhythm** — signed-in free accounts have 100 reflections a month; Premium has 600; guests stay on the daily guest cap. When the month is complete, a quiet pause sits above the writing box. Reflections return on the 1st
+- **Privacy and Terms** — if those pages change, you'll be asked to look them over again; they open the live quietlight.app documents
+- **A lantern at launch** — after the splash, a lantern glow, then the journal; Reduce Motion skips the glow
+
+---
+
+## 1.4.0 · Update · October 23, 2026
 
 **Premium, Memory Garden, Read aloud & easier to read**
 
