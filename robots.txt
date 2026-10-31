@@ -10,6 +10,7 @@ Disallow: /ig/
 Disallow: /threads/
 Disallow: /tt/
 Disallow: /x/
+Disallow: /bsky/
 
 User-agent: GPTBot
 Allow: /

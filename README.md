@@ -52,7 +52,7 @@ Public URLs are directory indexes (`/about/`, `/privacy/`, …). Root `*.html` f
 | [`support/`](support/index.html) | `/support/` | Support form (honeypot + posts to dagazapps.com/api/support) |
 | [`pause/`](pause/index.html) | `/pause/` | A quiet place to sit for a moment (`noindex`) |
 | [`changelog/`](changelog/index.html) | `/changelog/` | Updates — version history |
-| [`ig/`](ig/index.html), [`tt/`](tt/index.html), [`threads/`](threads/index.html), [`x/`](x/index.html) | `/ig` `/tt` `/threads` `/x` | Social short links (`noindex`) → home with UTM |
+| [`ig/`](ig/index.html), [`tt/`](tt/index.html), [`threads/`](threads/index.html), [`x/`](x/index.html), [`bsky/`](bsky/index.html) | `/ig` `/tt` `/threads` `/x` `/bsky` | Social short links (`noindex`) → home with UTM |
 | [`robots.txt`](robots.txt) | | Crawl rules + sitemap pointer |
 | [`sitemap.xml`](sitemap.xml) | | Indexable URLs for Search Console |
 
@@ -127,6 +127,8 @@ Just a quiet companion — offering light, a gentle question, or a resonant pers
     <a href="https://www.instagram.com/quietlightapp/">Instagram</a>
     &nbsp;·&nbsp;
     <a href="https://www.tiktok.com/@quietlightapp">TikTok</a>
+    &nbsp;·&nbsp;
+    <a href="https://bsky.app/profile/quietlightapp.bsky.social">Bluesky</a>
     &nbsp;·&nbsp;
     support@quietlight.app
   </sub>
