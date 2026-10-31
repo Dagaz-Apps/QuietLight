@@ -4,6 +4,7 @@
   var mainNav = [
     { href: "/", label: "Home" },
     { href: "/about/", label: "About" },
+    { href: "/plans/", label: "Plans" },
     { href: "/changelog/", label: "Updates" },
   ];
 

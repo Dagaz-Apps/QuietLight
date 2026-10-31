@@ -45,6 +45,7 @@ Public URLs are directory indexes (`/about/`, `/privacy/`, …). Root `*.html` f
 |------|------------|---------|
 | [`index.html`](index.html) | `/` | Home, download links, what's new |
 | [`about/`](about/index.html) | `/about/` | What Quiet Light is — and is not |
+| [`plans/`](plans/index.html) | `/plans/` | Free and Premium |
 | [`privacy/`](privacy/index.html) | `/privacy/` | Privacy policy |
 | [`terms/`](terms/index.html) | `/terms/` | Terms of service |
 | [`safety/`](safety/index.html) | `/safety/` | Public crisis protocol |

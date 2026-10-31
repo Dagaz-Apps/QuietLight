@@ -26,6 +26,7 @@ It is free to download on the App Store (iOS) and Google Play (Android).
 
 - [Home](https://quietlight.app/): what Quiet Light is, how the app works, download
 - [About](https://quietlight.app/about/): mission, companions, what it is and is not
+- [Plans](https://quietlight.app/plans/): what Free and Premium include
 - [Updates](https://quietlight.app/changelog/): version history
 - [Terms](https://quietlight.app/terms/): Terms of Service (version 1.3.0)
 - [Privacy](https://quietlight.app/privacy/): Privacy Policy (version 1.3.0)
